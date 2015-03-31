@@ -1,0 +1,104 @@
+Package: com.phumraphee.battpink
+Name: BattPink for Alkaline
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Change Battery icon using Alkaline
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.battpink/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: phumraphee  <phumraphee@hotmail.com>
+Section: Addons (Alkaline)
+Depends: com.fortysixandtwo.alkaline
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 495178
+MD5sum: f18145fe1b2034a640598972290cff07
+Filename: ./debs/com.phumraphee.battpink/com.phumraphee.battpink.deb
+
+Package: com.phumraphee.linestickergiftenabler
+Name: LINE Sticker Gift Enabler
+Version: 1.0-1
+Architecture: iphoneos-arm
+Description: Enable sending sticker as a gift.
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.linestickergiftenabler/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: PoomSmart  <poomst@hotmail.com>
+Section: Tweaks
+Depends: mobilesubstrate, firmware (>= 5.0)
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 3392
+MD5sum: f1036e030f01f498666a3f1d62015419
+Filename: ./debs/com.phumraphee.linestickergiftenabler/com.phumraphee.linestickergiftenabler.deb
+
+Package: com.phumraphee.linethemegiftenabler
+Name: LINE Theme Gift Enabler
+Version: 1.0-1
+Architecture: iphoneos-arm
+Description: Enable sending theme as a gift.
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.linethemegiftenabler/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: PoomSmart  <poomst@hotmail.com>
+Section: Tweaks
+Depends: mobilesubstrate, firmware (>= 5.0)
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 9264
+MD5sum: 52226aaeb49758c55ac2c9556b0342a9
+Filename: ./debs/com.phumraphee.linethemegiftenabler/com.phumraphee.linethemegiftenabler.deb
+
+Package: com.phumraphee.my3glogoforzeppelin
+Name: My3g logo for zeppelin
+Version: 1.0
+Architecture: iphoneos-arm
+Description: My3g logo for zeppelin
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.my3glogoforzeppelin/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: phumraphee  <phumraphee@hotmail.com>
+Section: Addons (Zeppelin)
+Depends: com.alexzielenski.zeppelin
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 7206
+MD5sum: b52a5fea6dee5f4c520622ee518d0ad2
+Filename: ./debs/com.phumraphee.my3glogoforzeppelin/com.phumraphee.my3glogoforzeppelin.deb
+
+Package: com.phumraphee.thaikeypadforpasscodelock
+Name: Thaikeypad for Passcode lock
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Change keypad in Passcode lock using winterboard
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.thaikeypadforpasscodelock/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: phumraphee  <phumraphee@hotmail.com>
+Section: Themes (LockScreen)
+Depends: winterboard
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 84016
+MD5sum: 568febc1af191db4429640dcd95e013e
+Filename: ./debs/com.phumraphee.thaikeypadforpasscodelock/com.phumraphee.thaikeypadforpasscodelock.deb
+
+Package: com.phumraphee.tot3glogoforzeppelin
+Name: TOT 3G logo for zeppelin
+Version: 1.0
+Architecture: iphoneos-arm
+Description: TOT 3G logo for zeppelin
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.tot3glogoforzeppelin/FILE/index.html
+Maintainer: phumraphee <phumraphee@hotmail.com>
+Author: phumraphee     <phumraphee@hotmail.com>
+Section: Addons (Zeppelin)
+Depends: com.alexzielenski.zeppelin
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 10308
+MD5sum: bdc0bd7104ac101eea5d7c17195c1ba3
+Filename: ./debs/com.phumraphee.tot3glogoforzeppelin/com.phumraphee.tot3glogoforzeppelin.deb
+
+Package: com.phumraphee.wifiondas
+Name: Wifi Ondas
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Change Wifi icon using winterboard
+Depiction: http://www.kjn.ac.th/cydia/debs/com.phumraphee.wifiondas/FILE/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: phumraphee  <phumraphee@hotmail.com>
+Section: Themes (System)
+Depends: winterboard
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 4614
+MD5sum: 9b6336746b84cfbbe4815921f85590b2
+Filename: ./debs/com.phumraphee.wifiondas/com.phumraphee.wifiondas.deb
