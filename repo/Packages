@@ -3,7 +3,7 @@ Name: BattPink for Alkaline
 Version: 1.0
 Architecture: iphoneos-arm
 Description: Change Battery icon using Alkaline
-Depiction: http://phumraphee.github.io/more/battpink/index.html
+Depiction: http://phumraphee.github.io/repo/more/battpink/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: phumraphee  <phumraphee@hotmail.com>
 Section: Addons (Alkaline)
@@ -18,7 +18,7 @@ Name: LINE Sticker Gift Enabler
 Version: 1.0-1
 Architecture: iphoneos-arm
 Description: Enable sending sticker as a gift.
-Depiction: http://phumraphee.github.io/more/linestickergiftenabler/index.html
+Depiction: http://phumraphee.github.io/repo/more/linestickergiftenabler/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: PoomSmart  <poomst@hotmail.com>
 Section: Tweaks
@@ -33,7 +33,7 @@ Name: LINE Theme Gift Enabler
 Version: 1.0-1
 Architecture: iphoneos-arm
 Description: Enable sending theme as a gift.
-Depiction: http://phumraphee.github.io/more/linethemegiftenabler/index.html
+Depiction: http://phumraphee.github.io/repo/more/linethemegiftenabler/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: PoomSmart  <poomst@hotmail.com>
 Section: Tweaks
@@ -48,7 +48,7 @@ Name: My3g logo for zeppelin
 Version: 1.0
 Architecture: iphoneos-arm
 Description: My3g logo for zeppelin
-Depiction: http://phumraphee.github.io/more/my3glogoforzeppelin/index.html
+Depiction: http://phumraphee.github.io/repo/more/my3glogoforzeppelin/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: phumraphee  <phumraphee@hotmail.com>
 Section: Addons (Zeppelin)
@@ -63,7 +63,7 @@ Name: Thaikeypad for Passcode lock
 Version: 1.0
 Architecture: iphoneos-arm
 Description: Change keypad in Passcode lock using winterboard
-Depiction: http://phumraphee.github.io/more/thaikeypadforpasscodelock/index.html
+Depiction: http://phumraphee.github.io/repo/more/thaikeypadforpasscodelock/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: phumraphee  <phumraphee@hotmail.com>
 Section: Themes (LockScreen)
@@ -78,7 +78,7 @@ Name: TOT 3G logo for zeppelin
 Version: 1.0
 Architecture: iphoneos-arm
 Description: TOT 3G logo for zeppelin
-Depiction: http://phumraphee.github.io/more/tot3glogoforzeppelin/index.html
+Depiction: http://phumraphee.github.io/repo/more/tot3glogoforzeppelin/index.html
 Maintainer: phumraphee <phumraphee@hotmail.com>
 Author: phumraphee     <phumraphee@hotmail.com>
 Section: Addons (Zeppelin)
@@ -93,7 +93,7 @@ Name: Wifi Ondas
 Version: 1.0
 Architecture: iphoneos-arm
 Description: Change Wifi icon using winterboard
-Depiction: http://phumraphee.github.io/more/wifiondas/index.html
+Depiction: http://phumraphee.github.io/repo/more/wifiondas/index.html
 Maintainer: phumraphee  <phumraphee@hotmail.com>
 Author: phumraphee  <phumraphee@hotmail.com>
 Section: Themes (System)
