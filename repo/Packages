@@ -43,6 +43,22 @@ Size: 9264
 MD5sum: 52226aaeb49758c55ac2c9556b0342a9
 Filename: ./debs/com.phumraphee.linethemegiftenabler.deb
 
+Package: com.phumraphee.madeforiphonelogoforzeppelin
+Name: made for iphone logo for zeppelin
+Version: 1.0
+Architecture: iphoneos-arm
+Description: made for iphone logo for zeppelin
+Depiction: http://phumraphee.github.io/repo/more/madeforiphonelogoforzeppelin/index.html
+Maintainer: phumraphee  <phumraphee@hotmail.com>
+Author: phumraphee  <phumraphee@hotmail.com>
+Section: Addons (Zeppelin)
+Depends: com.alexzielenski.zeppelin
+Icon: http://itiaprepo.com/tiz38/test.png
+Size: 10212
+MD5sum: 487acae5d34e5f14591e5a3c42adcf41
+Filename: ./debs/com.phumraphee.madeforiphonelogoforzeppelin.deb
+
+
 Package: com.phumraphee.my3glogoforzeppelin
 Name: My3g logo for zeppelin
 Version: 1.0
