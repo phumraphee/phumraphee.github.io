@@ -34,7 +34,7 @@ margin: 0 auto;
 padding: 1em 1em 1.3em;
 position: relative;
 text-shadow: 0px -1px black;
-width: 300px;
+width: 300px; //267old
 }
 div.popup::before {
 -webkit-border-image: url('popup.png') 60 0 62 0 fill;
