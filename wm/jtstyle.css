@@ -1,0 +1,15 @@
+body
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: small;
+	background-color: #ffcc99;
+	margin-top: 20px;
+}
+a
+{
+	text-decoration: none;
+}
+a:hover {
+	color: black;
+	background: #FF9966
+}
