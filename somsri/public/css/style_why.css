@@ -1,0 +1,55 @@
+.bodypanel {
+    background-color: rgb(244,164,49);
+}
+
+.bodypanel-inner {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.bodypanel-inner .block {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.bodypanel-inner .icon img {
+    width: 125px;
+    height: 125px;
+} 
+
+.bodypanel-inner .description {
+    margin-left: 30px;
+    /*text-align: justify;*/
+}
+
+.bodypanel-inner .description .headtext {
+    color: darkred;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:600px) {
+    .bodypanel-inner .icon img {
+        width: 100px;
+        height: 100px;
+    } 
+    
+    .bodypanel-inner .description {
+        margin-left: 20px;
+        /*text-align: justify;*/
+    }
+}
+
+@media screen and (max-width:450px) {
+    .bodypanel-inner .icon img {
+        width: 75px;
+        height: 75px;
+    } 
+    
+    .bodypanel-inner .description {
+        margin-left: 15px;
+        /*text-align: justify;*/
+    }
+}

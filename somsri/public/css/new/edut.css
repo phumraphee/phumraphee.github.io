@@ -1,0 +1,178 @@
+@import url("../../font/pridi.css");
+@import url("../../font/freesia.css");
+
+.bodypanel {
+	/*margin-left: 10px;
+    margin-right: 10px;*/
+	padding-top: 20px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.eduflex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.educon {
+    position:relative;
+	margin: 15px;
+	transition: 0.5s filter;
+}
+
+.educon:not(.showing):hover {
+	cursor: pointer;
+}
+
+.eduimg {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height: 100%;
+	transition: 0.5s filter;
+}
+
+.edumodal {
+	position:absolute;
+	left:0;
+	top:0;
+	text-align: left;
+	background-color: rgba(255,255,255,0.75);
+	height: 100%;
+	transition: 0.5s opacity;
+	opacity:0;
+	display: none;
+	width:100%;
+}
+
+.edupresent {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.edupresent img {
+	width: 19%;
+	height: 19%;
+	margin-right: 1%;
+	margin-bottom: 1%;
+}
+
+.edupretext {
+	font-family: 'Pridi';
+	padding: 15px;
+	padding-top:20px;
+	line-height: 20px;
+	position: relative;
+}
+
+.edupretext img {
+	vertical-align:middle;
+	width: 30px;
+	height: 30px;
+}
+
+.edupretext .eduprice {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size:16pt;
+	background-color:rgb(192,0,0);
+	color:rgb(255,255,255);
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	
+	position: absolute;
+	top: 60px;
+	left: 200px;
+}
+
+.close {
+	position: absolute;
+	top:0;
+	right:0;
+	width:30px;
+	height: 30px;
+}
+
+.close:hover {
+	cursor:pointer;
+}
+
+@media screen and (max-width:500px){
+	.educon {
+		width: 400px;
+		height: 400px;
+	}
+}
+
+@media screen and (max-width:425px){
+	.educon {
+		width: 350px;
+		height: 350px;
+	}
+}
+
+@media screen and (max-width:375px){
+	.educon {
+		width: 275px;
+		height: 275px;
+	}
+}
+
+@media screen and (max-width:300px){
+	.educon {
+		width: 225px;
+		height: 225px;
+	}
+}
+
+@media screen and (min-width:500px){
+	.educon {
+		width: 500px;
+		height: 500px;
+	}
+}
+
+@media screen and (min-width:1000px){
+	.educon {
+		width: 400px;
+		height: 400px;
+		margin: 10px;
+	}
+}
+
+@media screen and (min-width:1200px) {
+	.educon {
+		width: 400px;
+		height: 400px;
+		margin: 5px;
+	}
+}
+
+@media screen and (min-width:1400px) {
+	.educon {
+		width: 450px;
+		height: 450px;
+	}
+}
+
+@media screen and (min-width:1550px) {
+	.educon {
+		width: 500px;
+		height: 500px;
+	}
+}
+
+.aboutbodypanel {
+	font-family: freesia;
+	font-size:20px;
+	margin-left: 10px;
+    margin-right: 10px;
+	background-color: rgb(217,217,217);
+	padding: 10px;
+	overflow: hidden;
+}

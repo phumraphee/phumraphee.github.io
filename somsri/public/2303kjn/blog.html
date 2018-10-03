@@ -1,0 +1,558 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+		<script src="../js/tinymce/js/tinymce/jquery.tinymce.min.js"></script>
+		<script src="../js/tinymce/js/tinymce/vue/tinymce-vue.min.js"></script>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../js/tinymce/js/tinymce/themes/modern/theme.min.js">
+		
+		<style>
+			.control-child {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			#editmodal hr {
+				border-color: black;
+			}
+			
+			body {
+				padding: 10px;
+			}
+			
+			.btnpreview {
+				width:100%;
+				height: 150px;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				transition: 0.5s background;
+			}
+
+			.fbpreview {
+				width: 100%;
+				padding-top: 50%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+
+			.mce-notification-warning {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vue-wrap">
+			<button class="btn btn-success" onclick="doadd();">Add</button>
+			<ul id="control-wrap" class="list-group">
+				<li class="control-child list-group-item" v-for="(val,i) in blogdata">
+					<div>
+						{{val.id}} <br>
+						{{val.data.topic}}
+					</div>
+					<div>
+						<button class="btn btn-primary" v-on:click="doedit(i)">แก้ไข</button>
+						<button class="btn btn-secondary" v-on:click="moveup(i)">ขึ้น</button>
+						<button class="btn btn-secondary" v-on:click="movedown(i)">ลง</button>
+						<button class="btn btn-danger" v-on:click="dodelete2(i)">ลบ</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="vue-editmodal">
+			<div class="modal" tabindex="-1" role="dialog" id="editmodal" data-backdrop="static">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">{{blogdata[curr].id}}</h5>
+							<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>-->
+							<button type="button" class="btn btn-secondary edit-footer-btn" data-dismiss="modal">ปิด (ไม่เปลี่ยนข้อมูลกลับ)</button>
+						</div>
+						<div class="modal-body" style="background-color:rgb(217,217,217);">
+							<div class="form-group">
+								หัวเรื่อง
+								<input type="text" class="form-control" id="edit-topic" v-model="blogdata[curr].data.topic">
+							</div>
+							<div class="form-group">
+								เขียนโดย
+								<input type="text" class="form-control" id="edit-topic" v-model="blogdata[curr].data.create_by">
+							</div>
+							<hr>
+							<div class="form-group">
+								ปุ่ม
+								<div class="btnpreview" :style="{'background-image':'url('+blogdata[curr].data.btn+')'}" @mouseover="$('.btnpreview').css('background-image','url('+blogdata[curr].data.btnhover+')');" @mouseout="$('.btnpreview').css('background-image','url('+blogdata[curr].data.btn+')');"></div>
+								ตอน ไม่ over
+								<input type="file" class="form-control" :id="'edit-btn'" accept="image/*">
+								ตอน over
+								<input type="file" class="form-control" :id="'edit-btnhover'" accept="image/*">
+							</div>
+							<div class="form-group">
+								FB and Google
+								<div class="fbpreview" :style="{'background-image':'url('+blogdata[curr].data.ogimg+')'}"></div>
+								รูปที่แสดงใน FB
+								<input type="file" class="form-control" :id="'edit-ogimg'" accept="image/*">
+								คำบรรยาย (Description)
+								<textarea class="form-control" id="edit-des" v-model="blogdata[curr].data.description"></textarea>
+							</div>
+							<hr>
+							<div class="form-group" v-for="(val,i) in blogdata[curr].data.body" :id="'edit-group-'+i">
+								# {{i}}
+								<template v-if="val.type==0">
+									<editor class="form-control" :id="'edit-body-'+i" v-model="val.text" :init='{plugins: "paste",paste_as_text: true}'></editor>
+								</template>
+								<template v-else-if="val.type==1">
+									<br>
+									<center><img :src="val.src" :width="(val.size!==''?val.size:0)+'%'"></center><br>
+									<input type="file" class="form-control" :id="'edit-body-'+i" accept="image/*">
+									Size : <input type="number" class="form-control" :id="'edit-body-'+i+'-size'" v-model="val.size" style="display:inline;width:100px;"> %
+									<br>
+								</template>
+								<button class="btn btn-danger" style="margin-top:5px;" v-on:click="deletesingle(i)">ลบ</button>
+								<button class="btn btn-secondary" style="margin-top:5px;" v-on:click="moveup(i)">ขึ้น</button>
+								<button class="btn btn-secondary" style="margin-top:5px;" v-on:click="movedown(i)">ลง</button>
+								<hr>
+							</div>
+							
+							<button type="button" class="btn btn-primary" onclick="edit_addtext()">เพิ่มข้อความ</button>
+							<button type="button" class="btn btn-success" onclick="edit_addimage()">เพิ่มรูปภาพ</button>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="edit-submit-btn" class="btn btn-primary edit-footer-btn" onclick="edit_submit()">บันทึก</button>
+							<button type="button" class="btn btn-danger edit-footer-btn" data-dismiss="modal" onclick="edit_cancel()">ยกเลิก</button>
+							<button type="button" class="btn btn-secondary edit-footer-btn" data-dismiss="modal">ปิด (ไม่เปลี่ยนข้อมูลกลับ)</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="addmodal" class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">ใส่ ID ของ blog</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						ID ( http://somsritshirt.com/blog/... )
+						<input type="text" id="add-id" class="form-control">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="doadd2()" data-dismiss="modal">Add</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="deletemodal" class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">ต้องการลบ ?</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						ต้องการลบ <span id="delete-id"></span> <br>
+						( <span id="delete-index"></span> )
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" onclick="dodelete(parseInt($('#delete-index').html()))" data-dismiss="modal">Delete</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+				authDomain: "somsritshirt-ced49.firebaseapp.com",
+				databaseURL: "https://somsritshirt-ced49.firebaseio.com",
+				projectId: "somsritshirt-ced49",
+				storageBucket: "somsritshirt-ced49.appspot.com",
+				messagingSenderId: "99816736698"
+			};
+			firebase.initializeApp(config);
+			
+			var db = firebase.firestore();
+			var storage = firebase.storage();
+			var storageRef = storage.ref();
+		</script>
+		<script>
+		
+			function getParameterByName(name, url) {
+				if (!url) url = window.location.href;
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+			
+			var blogdata = [{id:"",data:{topic:"",order:0,body:[]}}];
+			var blogbodybak = [];
+			db.collection("blog").orderBy("order").get().then(function(querySnapshot) {
+				querySnapshot.forEach(function(doc) {
+					// doc.data() is never undefined for query doc snapshots
+					console.log(doc.id, " => ", doc.data());
+					blogdata.push({id:doc.id,data:doc.data()});
+				});
+				blogdata.shift();
+				vm_edit.$forceUpdate();
+			});
+			
+			var vm = new Vue({
+				el: '#vue-wrap',
+				data: {
+					blogdata:blogdata
+				},
+				methods: {
+					doedit: function(index) {
+						vm_edit.curr = index;
+						$("#editmodal").modal('show');
+						blogbodybak = JSON.parse(JSON.stringify(blogdata[vm_edit.curr].data.body));
+						vm_edit.$forceUpdate();
+					},
+					moveup: function(index) {
+						if (index==0) return;
+						
+						blogdata[index].data.order--;
+						blogdata[index-1].data.order++;
+						
+						console.log(db.collection("blog").doc(blogdata[index].id));
+						console.log(db.collection("blog").doc(blogdata[index-1].id));
+						$(".btn").prop("disabled",true);
+						
+						Promise.all([
+							db.collection("blog").doc(blogdata[index].id).set(blogdata[index].data),
+							db.collection("blog").doc(blogdata[index-1].id).set(blogdata[index-1].data)
+						]).then(function() {
+							var temp = blogdata[index];
+							blogdata[index] = blogdata[index-1];
+							blogdata[index-1] = temp;
+							
+							vm.$forceUpdate();
+							vm_edit.$forceUpdate();
+							
+							$(".btn").prop("disabled",false);
+						}).catch(function(err) {
+							alert("Move Error : "+err);
+							console.log("Move Error");
+							console.log(err);
+							
+							$(".btn").prop("disabled",false);
+						});
+					}
+				}
+			});
+			
+			var vm_edit = new Vue({
+				el: '#vue-editmodal',
+				data: {
+					curr: 0
+				},
+				components: {
+    				'editor': Editor // <- Important part
+				},
+				methods: {
+					deletesingle: function(index) {
+						var curr = this.curr;
+						//console.log(curr);
+						blogdata[curr].data.body.splice(index,1);
+					},
+					moveup: function(index) {
+						var curr = this.curr;
+						if (index==0) return;
+						
+						var temp = blogdata[curr].data.body[index];
+						blogdata[curr].data.body[index] = blogdata[curr].data.body[index-1];
+						blogdata[curr].data.body[index-1] = temp;
+						
+						vm_edit.$forceUpdate();
+					},
+					movedown: function(index) {
+						var curr = this.curr;
+						if (index==blogdata[curr].data.body.length-1) return;
+						
+						var temp = blogdata[curr].data.body[index];
+						blogdata[curr].data.body[index] = blogdata[curr].data.body[index+1];
+						blogdata[curr].data.body[index+1] = temp;
+						
+						vm_edit.$forceUpdate();
+					}
+				}
+			});
+			
+			function dodelete2(index) {
+				$("#deletemodal").modal('show');
+				$("#delete-id").text(blogdata[index].id);
+				$("#delete-index").text(index);
+			}
+			
+			function dodelete(index) {
+				db.collection("blog").doc(blogdata[index].id).delete().then(function() {
+					alert("Delete Success");
+					blogdata.splice(index,1);
+				}).catch(function(err) {
+					alert("Delete Error : ",err);
+					console.log("Delete Error");
+					console.log(err);
+				});
+			}
+			
+			function edit_addtext() {
+				var curr = vm_edit.curr;
+				blogdata[curr].data.body.push({type:0,text:""});
+			}
+			
+			function edit_addimage() {
+				var curr = vm_edit.curr;
+				blogdata[curr].data.body.push({type:1,src:"",size:50});
+			}
+			
+			function edit_cancel() {
+				var curr = vm_edit.curr;
+				blogdata[curr].data.body = blogbodybak;
+				vm_edit.$forceUpdate();
+			}
+			
+			function edit_submit() {
+				var curr = vm_edit.curr;
+				blogbodybak = JSON.parse(JSON.stringify(blogdata[vm_edit.curr].data.body));
+				$("#editmodal .btn, #editmodal input, #editmodal textarea").prop("disabled",true);
+				
+				var imgref = storageRef.child("blog/im");
+				var fileid = Date.now();
+				
+				var filefinishcount = 0;
+				var filecount = 0;
+				
+				var btnfile = $("#edit-btn")[0].files[0];
+				var btnfilehover = $("#edit-btnhover")[0].files[0];
+				var ogimgfile = $("#edit-ogimg")[0].files[0];
+				
+				//upload image start here
+				if (btnfile) { //upload image from btnfile field which is #edit-btn
+					filecount++;
+					uploadimg(String(fileid-1),btnfile).then(function(url) {
+						blogdata[curr].data.btn = url;
+						
+						filefinishcount++;
+						checkfilefinish();
+					}).catch(function(err) {
+						alert("BTN Image error : ",err);
+						console.log("BTN Image error");
+						console.log(err);
+					});
+				}
+				if (btnfilehover) {
+					filecount++;
+					uploadimg(String(fileid-2),btnfilehover).then(function(url) {
+						blogdata[curr].data.btnhover = url;
+						
+						filefinishcount++;
+						checkfilefinish();
+					}).catch(function(err) {
+						alert("BTN Hover Image error : ",err);
+						console.log("BTN Hover Image error");
+						console.log(err);
+					});
+				}
+				if (ogimgfile) {
+					filecount++;
+					uploadimg(String(fileid-3),ogimgfile).then(function(url) {
+						blogdata[curr].data.ogimg = url;
+						
+						filefinishcount++;
+						checkfilefinish();
+					}).catch(function(err) {
+						alert("FB (og:img) Image error : ",err);
+						console.log("FB (og:img) Image error");
+						console.log(err);
+					});
+				}
+				
+				
+				//do images
+				blogdata[curr].data.body.forEach(function(val,index) {
+					if (val.type==1) {
+						var imgfile = $("#edit-body-"+index)[0].files[0];
+						if (imgfile) {
+							filecount++;
+							//console.log(index);
+							/*if (imgfile.type == "image/jpeg") {
+								var fileref = imgref.child((fileid+index)+"_resize.jpg");
+								fileref.put(imgfile).then(function(data) {
+									//console.log(data);
+									function dogeturl() {
+										setTimeout(function() {
+											var jpgref = imgref.child((fileid+index)+".jpg");
+											jpgref.getDownloadURL().then(function(url) {
+												val.src = url;
+												
+												filefinishcount++;
+												checkfilefinish();
+											}).catch(function(err) {
+												console.log("Get url error : "+err);
+												dogeturl();
+											});
+										},3000);
+									}
+									dogeturl();
+								}).catch(function(err) {
+									alert("Upload Image Error : "+err);
+									console.log("Upload Image Error");
+									console.log(err);
+								});
+							} else if (imgfile.type == "image/png") {
+								var fileref = imgref.child((fileid+index)+"_resize.png");
+								fileref.put(imgfile).then(function(data) {
+									//console.log(data);
+									function dogeturl() {
+										setTimeout(function() {
+											var jpgref = imgref.child((fileid+index)+".jpg");
+											jpgref.getDownloadURL().then(function(url) {
+												val.src = url;
+												
+												filefinishcount++;
+												checkfilefinish();
+											}).catch(function(err) {
+												console.log("Get url error : "+err);
+												dogeturl();
+											});
+										},3000);
+									}
+									dogeturl();
+								}).catch(function(err) {
+									alert("Upload Image Error : "+err);
+									console.log("Upload Image Error");
+									console.log(err);
+								});
+							} else {
+								alert("Image Error : "+imgfile.type+" Not supported");
+							}*/
+							
+							uploadimg(String(fileid+index),imgfile).then(function(url) {
+								val.src = url;
+								
+								filefinishcount++;
+								checkfilefinish();
+							}).catch(function(err) {
+								alert("Image error : ",err);
+								console.log("Image error");
+								console.log(err);
+							});
+						}
+					}
+				});
+				
+				function checkfilefinish() {
+					if (filefinishcount == filecount) dofinal();
+				}
+				checkfilefinish();
+				
+				
+				function dofinal() {
+					db.collection("blog").doc(blogdata[curr].id).set(blogdata[curr].data).then(function() {
+						alert("Edit Success");
+						$("#editmodal .btn, #editmodal input, #editmodal textarea").prop("disabled",false);
+						$("#editmodal input[type=file]").val("");
+					}).catch(function(err) {
+						alert("Final Step Error : ",err);
+						console.log("Final Step Error");
+						console.log(err);
+						$("#editmodal .btn, #editmodal input, #editmodal textarea").prop("disabled",false);
+						$("#editmodal input[type=file]").val("");
+					});
+				}
+			}
+			
+			function doadd2() {
+				var id = $("#add-id").val();
+				var newdata = {
+					topic: "",
+					order: blogdata.length,
+					body: [],
+					id: id,
+					btn: "",
+					btnhover: "",
+					ogimg: "",
+					description: ""
+				};
+				db.collection("blog").doc(id).set(newdata).then(function() {
+					alert("Add Success");
+					blogdata.push({id:id,data:newdata});
+					vm.doedit(blogdata.length-1);
+				}).catch(function(err) {
+					alert("Add Error : ",err);
+					console.log("Add Error");
+					console.log(err);
+				});
+			}
+			
+			function doadd() {
+				$("#addmodal").modal('show');
+				$("#add-id").val("");
+			}
+			
+			function uploadimg(filename,imgfile) {
+				return new Promise(function (resolve,reject) { 
+					var imgref = storageRef.child("blog/im");
+				
+					if (imgfile.type == "image/jpeg") {
+						var fileref = imgref.child(filename+"_resize.jpg");
+						fileref.put(imgfile).then(function(data) {
+							//console.log(data);
+							function dogeturl() {
+								setTimeout(function() {
+									var jpgref = imgref.child(filename+".jpg");
+									jpgref.getDownloadURL().then(resolve).catch(function(err) {
+										console.log("Get url error : ",err);
+										dogeturl();
+									});
+								},3000);
+							}
+							dogeturl();
+						}).catch(reject);
+					} else if (imgfile.type == "image/png") {
+						var fileref = imgref.child(filename+"_resize.png");
+						fileref.put(imgfile).then(function(data) {
+							//console.log(data);
+							function dogeturl() {
+								setTimeout(function() {
+									var jpgref = imgref.child(filename+".jpg");
+									jpgref.getDownloadURL().then(resolve).catch(function(err) {
+										console.log("Get url error : ",err);
+										dogeturl();
+									});
+								},3000);
+							}
+							dogeturl();
+						}).catch(reject);
+					} else {
+						//alert("Image Error : "+imgfile.type+" Not supported");
+						reject("Image Error : "+imgfile.type+" Not supported");
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

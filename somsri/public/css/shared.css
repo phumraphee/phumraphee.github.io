@@ -1,0 +1,99 @@
+@font-face {
+    font-family: DBHelvethaicaX;
+    src: url("../font/DB Helvethaica X.ttf");
+}
+
+.topbanner {
+    height: 35px;
+}
+
+body {
+    background-image: url('../im/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+* {
+    font-family: DBHelvethaicaX !important;
+    color: white;
+}
+
+.modal-dialog .modal-content {
+    background-color: #a52241;
+}
+
+.scroll_top {
+    transition: all 0.3s ease 0s;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 9999;
+    right: 10px;
+    bottom: 10px;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    opacity: 0;
+    /*pointer-events: none;*/
+}
+
+.scroll_top:hover {
+    background-color: #c99947;
+    cursor: pointer;
+}
+
+.scroll_top .scroll_top_icon {
+    width:20px;
+    height:20px;
+    background-image: url("../im/arrow.png");
+    background-size: cover;
+    margin:15px;
+}
+
+/* footer (green copyright bar) */
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+    footer {
+        height: 40px;
+        line-height: 40px;
+        font-size: 1em;
+    }
+
+    body {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    line-height: 36px;
+    overflow: hidden;
+    font-size: 1em;
+    background-color: #30499b;
+    /*margin-top: 30px;*/
+}
+
+#Certificate-banners {
+    margin-top: 30px;
+}
+
+/*.menudis.right {
+	width: 300px;
+}*/
+
+/* mobile menu button fix -> make it white */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data\:image\/svg\+xml\;charset\=utf8\,\%3Csvg\ viewBox\=\'0\ 0\ 30\ 30\'\ xmlns\=\'http\:\/\/www\.w3\.org\/2000\/svg\'\%3E\%3Cpath\ stroke\=\'rgba\(255\,\ 255\,\ 255\,\ 1\)\'\ stroke-width\=\'2\'\ stroke-linecap\=\'round\'\ stroke-miterlimit\=\'10\'\ d\=\'M4\ 7h22M4\ 15h22M4\ 23h22\'\/\%3E\%3C\/svg\%3E");
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      //"npm --prefix functions run lint"
+    ]
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+	  ".git/**"
+    ],
+	  "cleanUrls": true,
+	  "rewrites": [
+		  {"source":"/blog/*","function":"blog_inner"}
+	  ],
+	  "headers": [
+	    { "source":"**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|font.css)", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
+	  ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

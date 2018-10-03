@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+        <style>
+            @font-face {
+                font-family: THSarabunNew;
+                src: url("../font/thsarabunnew-webfont.ttf") format("truetype");
+            }
+
+            @font-face {
+                font-family: THSarabunNew;
+                font-weight: bold;
+                src: url("../font/thsarabunnew_bold-webfont.ttf") format("truetype");
+            }
+
+            @font-face {
+                font-family: Freesia;
+                src: url("../font/freesia.otf") format("opentype");
+            }
+
+            @font-face {
+                font-family: Freesia;
+                font-weight: bold;
+                src: url("../font/freesia-bold.ttf") format("truetype");
+            }
+
+            html {
+                
+                font-family: Freesia;
+                font-size: 16pt;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th,td {
+                padding: 5px;
+                white-space: pre-line;
+            }
+
+            .piccol {
+                text-align: center;
+            }
+
+            table td {
+                width: 50%;
+            }
+
+            body {
+                width: 768px;
+                margin: 8px;
+                font-size: 12pt;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn {
+                font-size: 12pt;
+            }
+
+            @media print
+            {    
+                .no-print, .no-print *
+                {
+                    display: none !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="firebaseui-auth-container" class="no-print"></div>
+        <div id="loading" class="no-print">Loading...</div>
+        <div id="vue-wrap">
+            <div id="user-inf" class="no-print mb-4">
+                <div>
+                    <b>Login :</b> <span id="email">{{auth_email}}</span> <i v-if="isadmin">(Member)</i>
+                </div>
+                <button class="btn btn-danger" onclick="
+                        firebase.auth().signOut().then(function(){
+                            window.location.reload();
+                        }).catch(function(err){
+                            alert('Logout error '+JSON.stringify(err));
+                            console.log('Logout error', err);
+                        });">Logout</button>
+            </div>
+            
+            <center>
+                <div v-for="topimg in data_img()" class="mb-2">
+                    <img :src="topimg.img" :style="{
+                        width: topimg.imgsize+'%'
+                    }">
+                </div>
+            </center>
+            <div style="margin-top:10px; margin-bottom:10px;">
+                <b>โปรเจค: </b> {{data.name}} <br>
+                <b>ใบเสนอราคาเลขที่ </b> {{data.id}} <br>
+                <b>กำหนดส่งงาน วันที่</b> {{formatdate(data.due)}}
+            </div>
+
+            <table v-if="data.data[0].enable" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th colspan="2"><center>งานตัดและเย็บ</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ป้ายแสดงขนาดเสื้อ</td>
+                        <td>{{data.data[0].size_label}}</td>
+                    </tr>
+                    <tr>
+                        <td>ไซต์เสื้อ</td>
+                        <td>{{data.data[0].size}}</td>
+                    </tr>
+                    <tr>
+                        <td>แขนเสื้อ</td>
+                        <td>{{data.data[0].sleeve}}</td>
+                    </tr>
+                    <tr>
+                        <td>ลักษณะการเย็บ</td>
+                        <td>{{data.data[0].style}}</td>
+                    </tr>
+                    <tr>
+                        <td>สีเสื้อ</td>
+                        <td>{{data.data[0].color}}</td>
+                    </tr>
+                    <tr>
+                        <td>คอเสื้อ</td>
+                        <td>{{data.data[0].collar}}</td>
+                    </tr>
+                    <tr>
+                        <td>เนื้อผ้า</td>
+                        <td>{{data.data[0].fabric}}</td>
+                    </tr>
+                    <tr>
+                        <td>ขึ้นตัวอย่าง</td>
+                        <td>{{data.data[0].example}}</td>
+                    </tr>
+                    <tr v-if="data.type.indexOf('เสื้อโปโล')!=-1">
+                        <td>สาบเสื้อ</td>
+                        <td>{{data.data[0].placket}}</td>
+                    </tr>
+                    <tr v-if="data.type.indexOf('เสื้อโปโล')!=-1">
+                        <td>กระเป๋าเสื้อ</td>
+                        <td>{{data.data[0].pocket}}</td>
+                    </tr>
+                    <tr v-if="data.type.indexOf('เสื้อโปโล')!=-1">
+                        <td>กระดุม</td>
+                        <td>{{data.data[0].button}} เม็ด</td>
+                    </tr>
+                    <tr>
+                        <td>ลักษณะเสื้อเพิ่มเติม</td>
+                        <td>{{data.data[0].moreinfo}}</td>
+                    </tr>
+                    <tr>
+                        <td>จำนวน</td>
+                        <td>{{data.data[0].amount}}</td>
+                    </tr>
+                    <tr v-if="data.data[0].picrow" v-for="picrow in data.data[0].picrow">
+                        <td class="piccol">
+                            <img :src="picrow.img" :style="{
+                                width: picrow.imgsize+'%'
+                            }">
+                        </td>
+                        <td>{{picrow.text}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table v-if="data.data[1].enable" style="width:100%;margin-top:20px;">
+                <thead>
+                    <tr>
+                        <th colspan="2"><center>งานสกรีน</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ตำแหน่งสกรีน</td>
+                        <td>{{data.data[1].position}}</td>
+                    </tr>
+                    <tr>
+                        <td>ขนาดสกรีน</td>
+                        <td>{{data.data[1].size}}</td>
+                    </tr>
+                    <tr>
+                        <td>ระยะห่างจากคอเสื้อถึงตัวงาน</td>
+                        <td>{{
+                            (data.data[1].distance!='custom_cm'?data.data[1].distance:data.data[1].distance_cm+" cm")
+                        }}</td>
+                    </tr>
+                    <tr>
+                        <td>ชนิดงานสกรีน</td>
+                        <td>{{data.data[1].type}}</td>
+                    </tr>
+                    <tr>
+                        <td>สีสกรีน</td>
+                        <td>{{data.data[1].color}}</td>
+                    </tr>
+                    <tr>
+                        <td>ไฟล์เสื้อ</td>
+                        <td>{{data.data[1].file}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table v-if="data.data[2].enable" style="width:100%;margin-top:20px;">
+                <thead>
+                    <tr>
+                        <th colspan="2"><center>งานปัก</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ขนาดโลโก้ (ความกว้าง)</td>
+                        <td>{{data.data[2].size}}</td>
+                    </tr>
+                    <tr>
+                        <td>ตำแหน่งปัก</td>
+                        <td>{{data.data[2].position}}</td>
+                    </tr>
+                    <tr>
+                        <td>ไฟล์เสื้อ</td>
+                        <td>{{data.data[2].file}}</td>
+                    </tr>
+                    <tr>
+                        <td>ระยะห่างจากคอเสื้อถึงตัวงาน</td>
+                        <td>{{
+                                (data.data[2].distance!='custom_cm'?data.data[2].distance:data.data[2].distance_cm+" cm")
+                            }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:20px;">
+                <b>หมายเหตุ</b> เพื่อความถูกต้องในการผลิตงานโปรดตรวจสอบรายละเอียดให้ครบถ้วน
+            </div>
+    
+            <div style="text-align:right;margin-top:20px;">
+                ในนามสมศรีมีเสื้อ
+            </div>
+    
+            <div style="margin-top:40px;">
+                <button :class="['btn',(data.approve?'btn-success':'btn-secondary'),'w-100']" onclick="doapprove()">{{data.approve?'กดเพื่อ ยกเลิกการอนุมัติ':'กดเพื่อ อนุมัติ'}}</button> <br><br>
+                <span v-if="data.approved_by && data.approve">อนุมัติโดย {{data.approved_by}} เมื่อวันที่ {{formatdate(data.approved_at)}}</span> <br>
+                <span v-if="data.created_by">สร้างขึ้นโดย {{data.created_by}} เมื่อวันที่ {{formatdate(data.created_at)}}</span><br>
+                <span v-if="data.updated_by">แก้ไขโดย {{data.updated_by}} เมื่อวันที่ {{formatdate(data.updated_at)}}</span><br>
+            </div>
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+                authDomain: "somsritshirt-ced49.firebaseapp.com",
+                databaseURL: "https://somsritshirt-ced49.firebaseio.com",
+                projectId: "somsritshirt-ced49",
+                storageBucket: "somsritshirt-ced49.appspot.com",
+                messagingSenderId: "99816736698"
+            };
+            firebase.initializeApp(config);
+            
+            var db = firebase.firestore();
+            var storage = firebase.storage();
+            var storageRef = storage.ref();
+        </script>
+
+        <script>
+            var auth_email,auth_uid;
+            var isadmin = false;
+
+            function formatdate(date, noday, nomonth) {
+                if (!date) return "ไม่ได้ระบุไว้";
+                date = new Date(date);
+                month = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+                if (nomonth) {
+                    return (date.getFullYear() + 543);
+                } else if (noday) {
+                    return month[date.getMonth()] + " " + (date.getFullYear() + 543);
+                } else {
+                    return date.getDate() + " " + month[date.getMonth()] + " " + (date.getFullYear() + 543);
+                }
+            }
+
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+			//var quotdata = [{id:"",name:"",due:null,img:"",data:[{type:"งานตัดและเย็บ"}]}];
+            var id = getParameterByName("id");
+            var data = {};
+			db.collection("quotation").doc(id).get().then(function(doc) {
+                if (doc.exists) {
+                    data = doc.data();
+                } else {
+                    // doc.data() will be undefined in this case
+                    alert("Not found!");
+                }
+				initVue();
+			});
+
+            function initVue() {
+                $("#loading").hide();
+                window.vm = new Vue({
+                    el: '#vue-wrap',
+                    data: {
+                        data:data
+                    },
+                    methods: {
+                        data_img: function() {
+                            if (typeof data.img == 'string') {
+                                return [{img: data.img,imgsize: data.imgsize}];
+                            } else {
+                                return data.img;
+                            }
+                        }
+                    }
+                });
+            }
+
+		async function init() {
+			//init auth
+			var ui = new firebaseui.auth.AuthUI(firebase.auth());
+		
+			ui.start('#firebaseui-auth-container', {
+				signInOptions : [
+					// List of OAuth providers supported.
+					firebase.auth.GoogleAuthProvider.PROVIDER_ID
+				]
+				// Other config options...
+			});
+			
+			firebase.auth().onAuthStateChanged(async function(user) {
+				if (user) {
+					var email = user.email;
+					var uid = user.uid;
+
+					auth_email = email;
+					auth_uid = uid;
+				
+					$("#email").text(email);
+					$("#uid").text(uid);
+					$("#firebaseui-auth-container").hide();
+
+					vm.$forceUpdate();
+
+					//await init_isadmin();
+					//await init_selectdata();
+					//await init_quotdata();
+
+					//await init_countamount();
+
+					loading = false;
+					vm.$forceUpdate();
+				}
+			});
+		}
+		init();
+
+		function doapprove() {
+			data.approve = !data.approve;
+			if (data.approve) {
+				data.approved_by = auth_email;
+				data.approved_at = new Date();
+			}
+			db.collection("quotation").doc(data.id).update({"approve":data.approve,"approved_by": data.approved_by,"approved_at": data.approved_at}).then(function () {
+				//alert("แก้ไขการอนุมัติเรียบร้อย");
+			}).catch(function (err) {
+                if  (err.code == "permission-denied") {
+				    alert("กรุณาทำการ login ด้านบนก่อนทำการอนุมัติด้วยครับ (เมื่อ login เสร็จแล้วให้รอจนกว่าจะขึ้น email ของคุณในช่อง Login:...)")
+                } else {
+                    alert("Approve error : " + JSON.stringify(err));
+                }
+			});
+			vm.$forceUpdate();
+		}
+        </script>
+    </body>
+</html>

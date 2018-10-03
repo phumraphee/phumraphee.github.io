@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            @font-face {
+                font-family: THSarabunNew;
+                src: url("../font/thsarabunnew-webfont.ttf") format("truetype");
+            }
+
+            @font-face {
+                font-family: THSarabunNew;
+                font-weight: bold;
+                src: url("../font/thsarabunnew_bold-webfont.ttf") format("truetype");
+            }
+
+            @font-face {
+                font-family: Freesia;
+                src: url("../font/freesia.otf") format("opentype");
+            }
+
+            @font-face {
+                font-family: Freesia;
+                font-weight: bold;
+                src: url("../font/freesia-bold.ttf") format("truetype");
+            }
+
+            html {
+                width: 768px;
+                font-family: Freesia;
+                font-size: 16pt;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th,td {
+                padding: 5px;
+                white-space: pre-line;
+            }
+
+            .piccol {
+                text-align: center;
+            }
+
+            table td {
+                width: 25%;
+            }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="loading">Loading...</div>
+        <div id="vue-wrap">
+            <center>
+                ใบตรวจนับ
+            </center>
+            <div style="margin-top:10px; margin-bottom:10px;">
+                <b>โปรเจค: </b> {{data.name}} <br>
+                <b>ใบเสนอราคาเลขที่ </b> {{data.id}} <br>
+                <!--<b>กำหนดส่งงาน วันที่</b> {{formatdate(data.due)}}-->
+            </div>
+
+            จากช่างตัด
+            <table style="width:100%; margin-bottom:20px;">
+                <thead>
+                    <tr>
+                        <th>ไซต์</th>
+                        <th>ออร์เดอร์จริง</th>
+                        <th>จำนวนที่นับได้</th>
+                        <th>จำนวนเกิน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="val in amountlist">
+                        <td>{{val.size}}</td>
+                        <td>{{val.amount}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            จากช่างเย็บ
+            <table style="width:100%; margin-bottom:20px;">
+                <thead>
+                    <tr>
+                        <th>ไซต์</th>
+                        <th>ออร์เดอร์จริง</th>
+                        <th>จำนวนที่นับได้</th>
+                        <th>จำนวนเกิน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="val in amountlist">
+                        <td>{{val.size}}</td>
+                        <td>{{val.amount}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            จากช่างสกรีน
+            <table style="width:100%; margin-bottom:20px;">
+                <thead>
+                    <tr>
+                        <th>ไซต์</th>
+                        <th>ออร์เดอร์จริง</th>
+                        <th>จำนวนที่นับได้</th>
+                        <th>จำนวนเกิน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="val in amountlist">
+                        <td>{{val.size}}</td>
+                        <td>{{val.amount}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            จากคนแพค FINAL
+            <table style="width:100%; margin-bottom:20px;">
+                <thead>
+                    <tr>
+                        <th>ไซต์</th>
+                        <th>ออร์เดอร์จริง</th>
+                        <th>จำนวนที่นับได้</th>
+                        <th>จำนวนเกิน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="val in amountlist">
+                        <td>{{val.size}}</td>
+                        <td>{{val.amount}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:20px;">
+                <b>หมายเหตุ</b> 
+            </div>
+
+            <!--<div style="text-align:right;margin-top:20px;">
+                ในนามสมศรีมีเสื้อ
+            </div>-->
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+                authDomain: "somsritshirt-ced49.firebaseapp.com",
+                databaseURL: "https://somsritshirt-ced49.firebaseio.com",
+                projectId: "somsritshirt-ced49",
+                storageBucket: "somsritshirt-ced49.appspot.com",
+                messagingSenderId: "99816736698"
+            };
+            firebase.initializeApp(config);
+            
+            var db = firebase.firestore();
+            var storage = firebase.storage();
+            var storageRef = storage.ref();
+        </script>
+
+        <script>
+            function formatdate(date) {
+                date = new Date(date);
+                month = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
+                return date.getDate() + " " + month[date.getMonth()] + " " + (date.getFullYear() + 543);
+            }
+
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+			//var quotdata = [{id:"",name:"",due:null,img:"",data:[{type:"งานตัดและเย็บ"}]}];
+            var id = getParameterByName("id");
+            var data = {};
+			db.collection("quotation").doc(id).get().then(function(doc) {
+                if (doc.exists) {
+                    data = doc.data();
+                } else {
+                    // doc.data() will be undefined in this case
+                    alert("Not found!");
+                }
+				initVue();
+			});
+
+            function initVue() {
+                $("#loading").hide();
+                window.vm = new Vue({
+                    el: '#vue-wrap',
+                    data: {
+                        data:data
+                    },
+                    computed: {
+                        amountlist: function() {
+                            var res = [];
+                            for(var key in data.amountlist) {
+                                res[data.amountlist[key].order] = {
+                                    "size": key,
+                                    "amount": data.amountlist[key].amount
+                                }
+                            }
+                            return res;
+                        },
+                        total: function() {
+                            var sum = 0;
+                            for(var key in data.amountlist) {
+                                sum += parseInt(data.amountlist[key].amount)
+                            }
+                            return sum
+                        }
+                    },
+                    methods: {
+                        data_img: function() {
+                            if (typeof data.img == 'string') {
+                                return [{img: data.img,imgsize: data.imgsize}];
+                            } else {
+                                return data.img;
+                            }
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

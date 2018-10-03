@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>สมศรีมีเสื้อ - รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="สมศรี,สมศรีมีเสื้อ,รับผลิตเสื้อยืด,รับผลิตเสื้อ,สกรีนเสื้อ,ทำเสื้อ,เสื้อพนักงาน,เสื้อค่าย,เสื้อกิจกรรม,เสื้อโปโล,รับทำเสื้อโปโล,รับผลิตเสื้อโปโล,ผลิตเสื้อโปโล,ออกแบบเสื้อโปโล,โรงงานเสื้อโปโล,ผลิตเสื้อยืด,ออกแบบเสื้อยืด,โรงงานเสื้อยืด,โรงงานสกรีนเสื้อ,สกรีนเสื้อ ราคาถูก">
+    <meta name="description" content="รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="im/som-logo.ico">
+    <!--fb-->
+    <meta property="og:description" content="รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ" />
+    <meta property="og:title" content="สมศรีมีเสื้อ - รับผลิตเสื้อยืด เสื้อโปโล  สกรีนเสื้อ ปักเสื้อ" />
+    <meta property="og:image" content="http://somsritshirt.com/im/som_sb2.jpg" />
+
+    <!-- pace.js : loading progress bar -->
+    <script src="js/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="js/pace/pace-theme-flash.css">
+    <link rel="stylesheet" href="css/fade.css">
+
+    <script src="js/tracking.js"></script>
+
+    <!-- external library (jquery, vue, bootstrap and ...) -->
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.1/sprintf.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+
+    <link rel="stylesheet" href="font/font.css">
+
+    <link rel="stylesheet" href="css/order.css">
+    <script src="js/shared.js"></script>
+</head>
+
+<body>
+    
+    
+    <div class="headertext">หมายเลขคำสั่งซื้อ
+        <span class="fill_id"></span>
+    </div>
+    <div class="headertext">ได้รับสินค้าภายในวันที่
+        <span class="fill_due"></span>
+    </div>
+
+
+    <div id="container">
+        <div class="circleitem">
+            <div class="itemtext">รอการ<br>ดำเนินการ</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">ตัด</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">สกรีน</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">เย็บ</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">ตรวจสอบ<br>สินค้า</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">เตรียม<br>จัดส่ง</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">จัดส่งแล้ว</div>
+        </div>
+        <div class="circleitem">
+            <div class="itemtext">ลูกค้าได้รับ<br>สินค้า<br>เรียบร้อย</div>
+        </div>
+        <div class="nullitem order-9">&nbsp;</div>
+        <div class="nullitem order-10">&nbsp;</div>
+        <div class="nullitem order-11">&nbsp;</div>
+        <div class="nullitem order-12">&nbsp;</div>
+    </div>
+
+    <div id="waitingmodal" class="custommodal" style="height:400px; display:none;">
+        <div class="close2">X</div>
+        <div class="content">
+            เสื้อของท่านกำลังดำเนินการตัด<br>โดยปกติแล้วจะใช้เวลา 1-3 วันทำการ
+        </div>
+    </div>
+
+    <div id="trackingmodal" class="custommodal" style="height:400px; display:none;">
+        <div class="close2">X</div>
+        <div class="content">
+            ดำเนินการจัดส่งให้เรียบร้อย<br>ลูกค้าสามารถตรวจสอบสถานะการจัดส่งได้ที่<br><br>
+            <span class="fill_tracking"></span>
+        </div>
+    </div>
+
+    <div id="screenmodal" class="custommodal" style="height:auto; display:none;">
+        <div class="close2">X</div>
+        <div class="content">
+            แบบสกรีนของท่านเป็นดังนี้<br>ต้องการให้เริ่มงานต่อหรือไม่<br><img id="screenimg" src="im/loading_black.svg">
+            <div style="margin-top:20px;">
+                <button type="button" onclick="hidemodal();">
+						ดำเนินการต่อ
+					</button>
+                <button type="button">
+						แก้ไขแบบ
+					</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screenmodal_edit" class="custommodal" style="height:400px; display:none;">
+        <div class="close2">X</div>
+        <div class="content">
+            เสื้อของท่านกำลังดำเนินการตัด<br>โดยปกติแล้วจะใช้เวลา 1-3 วันทำการ
+        </div>
+    </div>
+
+    <input type="hidden" name="id" value="<?=$id?>">
+    <input type="hidden" name="status" value="<?=$status?>" id="statusinput">
+    <input type="hidden" name="2303kjn" value="2303kjn">
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+            authDomain: "somsritshirt-ced49.firebaseapp.com",
+            databaseURL: "https://somsritshirt-ced49.firebaseio.com",
+            projectId: "somsritshirt-ced49",
+            storageBucket: "somsritshirt-ced49.appspot.com",
+            messagingSenderId: "99816736698"
+        };
+        firebase.initializeApp(config);
+        
+        var db = firebase.firestore();
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+    </script>
+
+    <script>
+        var circlemargin = parseInt($(".circleitem").css("margin-left"));
+        var circlewidthall = $(".circleitem").width() + circlemargin * 2 + 12;
+        var perrow = Math.floor($("#container").width() / circlewidthall);
+
+        var status = 4;
+        var id = parseInt($_GET("id"));
+        var tracking;
+        var due;
+        var imgRef;
+        if (isNaN(id)) {
+            window.location = "order_input.html"
+        } else {
+            var docRef = db.collection("order").doc(String(id));
+            docRef.get().then(function(doc) {
+                if (doc.exists) {
+                    var data = doc.data();
+                    status = data.status;
+                    due = data.due;
+                    tracking = data.tracking;
+                    imgRef = storageRef.child("order/im/"+id+".jpg");
+                    $(".fill_id").html(id);
+                    duestr = sprintf("%02d %02d %04d",due.getDate(),due.getMonth()+1,due.getFullYear()+543);
+                    $(".fill_due").html(duestr);
+                    $(".fill_tracking").html(tracking);
+                    imgRef.getDownloadURL().then(function(img) {
+                        $("#screenimg, .screenimg").attr("src",img);
+                    }).catch(function(err) {
+                        alert("Image loading error : "+err.t);
+                    });
+                    main();
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                 }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        }
+        
+        function drawline_hori(x1, x2, y) {
+            var temp = x2;
+            x2 = Math.max(x1, x2);
+            x1 = Math.min(x1, temp);
+
+            var w = x2 - x1;
+
+            $('<div class="line line-hori">').css({
+                top: y - 3,
+                left: x1,
+                width: w + "px"
+            }).appendTo("body");
+        }
+
+        function drawline_verti(y1, y2, x) {
+            var temp = y2;
+            y2 = Math.max(y1, y2);
+            y1 = Math.min(y1, temp);
+
+            var h = y2 - y1;
+
+            $('<div class="line line-verti">').css({
+                left: x - 3,
+                top: y1,
+                height: h + "px"
+            }).appendTo("body");
+        }
+
+        function redrawline() {
+            $(".line").remove();
+
+            var n = 8;
+            var elebf$;
+            $("#container .circleitem").each(function(i) {
+                if (i == 0) {
+                    elebf$ = $(this);
+                    return;
+                }
+
+                var line = Math.floor(i / perrow);
+
+                var ele$ = $(this);
+                var elepos = ele$.position();
+                var elebfpos = elebf$.position();
+                elebfpos.left = elebfpos.left + circlemargin + 6;
+                elepos.left = elepos.left + circlemargin + 6;
+                elepos.top += 6;
+                elebfpos.top += 6;
+
+                if (elepos.top == elebfpos.top) {
+                    if (line % 2 == 0) {
+                        drawline_hori(elebfpos.left + elebf$.width(), elepos.left, elepos.top + ele$.height() / 2);
+                    } else {
+                        drawline_hori(elepos.left + ele$.width(), elebfpos.left, elepos.top + ele$.height() / 2);
+                    }
+                } else {
+                    console.log(elebfpos.top + elebf$.height(), elepos.top, elepos.left + ele$.width() / 2);
+                    drawline_verti(elebfpos.top + elebf$.height(), elepos.top, elepos.left + ele$.width() / 2);
+                }
+
+                //console.log(ele$.text());
+
+                elebf$ = ele$;
+            });
+        }
+
+        //arrange items
+        function rearrange() {
+            var n = 8;
+
+            circlemargin = parseInt($(".circleitem").css("margin-left"));
+            circlewidthall = $(".circleitem").width() + circlemargin * 2 + 12;
+
+            perrow = Math.floor($("#container").width() / circlewidthall);
+            $("#container .circleitem").each(function(i) {
+                var line = Math.floor(i / perrow);
+                //console.log(i,line);
+                if (line % 2 == 0) {
+                    $(this).css("order", i + 1);
+                } else {
+                    $(this).css("order", (perrow * (line + 1)) - i + perrow * line);
+                }
+            });
+
+            var nullcount = perrow - 8 % perrow;
+            //console.log(nullcount)
+            if (nullcount == perrow) nullcount = 0;
+            $("#container .nullitem").each(function(i) {
+                if (i < nullcount) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            redrawline();
+        }
+        
+        
+        //highlight status
+        function highlight() {
+            $("#container .circleitem").each(function(i) {
+                if (i <= status) {
+                    $(this).addClass("highlight");
+                } else {
+                    $(this).removeClass("highlight");
+                }
+            });
+        }
+
+        //close2 onclick
+        function hidemodal() {
+            $(".custommodal").fadeOut(200);
+            setTimeout(function() {
+                rearrange();
+            }, 500);
+        }
+        $(".close2").click(hidemodal);
+
+        function main() {
+            
+            highlight();
+
+            $(window).on("resize", rearrange);
+            $(window).on("load", rearrange);
+            rearrange();
+
+            /*<?php if (isset($_GET['2303kjn']) && $_GET['2303kjn']=='2303kjn'): ?>
+                $(".circleitem").click(function() {
+                    $("#statusinput").val(status = $(".circleitem").index(this));
+                    highlight();
+                })
+            <?php else: ?>*/
+            if (status == 2) {
+                $("#screenmodal").show();
+            } else if (status >= 6) {
+                $("#trackingmodal").show();
+            } else {
+                $("#waitingmodal").show();
+            }
+            /*<?php endif ?>*/
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+doctype html
+html
+  head
+    title สมศรีมีเสื้อ - ราคา
+    meta(charset='utf-8')
+    meta(name='keywords', content='สมศรี,สมศรีมีเสื้อ,รับผลิตเสื้อยืด,รับผลิตเสื้อ,สกรีนเสื้อ,ทำเสื้อ,เสื้อพนักงาน,เสื้อค่าย,เสื้อกิจกรรม,เสื้อโปโล,รับทำเสื้อโปโล,รับผลิตเสื้อโปโล,ผลิตเสื้อโปโล,ออกแบบเสื้อโปโล,โรงงานเสื้อโปโล,ผลิตเสื้อยืด,ออกแบบเสื้อยืด,โรงงานเสื้อยืด,โรงงานสกรีนเสื้อ,สกรีนเสื้อ ราคาถูก')
+    meta(name='description', content='รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href='im/som-logo.ico')
+    // fb
+    meta(property='og:description', content='รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ')
+    meta(property='og:title', content='สมศรีมีเสื้อ - รับผลิตเสื้อยืด เสื้อโปโล  สกรีนเสื้อ ปักเสื้อ')
+    meta(property='og:image', content='http://somsritshirt.com/im/som_sb2.jpg')
+    // external library (jquery, vue, bootstrap and ...)
+    script(src='js/jquery.min.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js')
+    // pace.js : loading progress bar
+    script(src='js/pace/pace.min.js')
+    link(rel='stylesheet', href='js/pace/pace-theme-flash.css')
+    link(rel='stylesheet', href='css/fade.css')
+    // css
+    link(rel='stylesheet', href='css/normalize.min.css')
+    link(rel='stylesheet', href='css/style_tgm.css')
+    // togglem
+    // me
+    meta(name='viewport', type='image/x-icon', content='width=device-width,initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='css/reset.css')
+    link(rel='stylesheet', type='text/css', href='css/style_edut.css')
+    link(rel='stylesheet', type='text/css', href='css/style_about.css')
+    link(rel='stylesheet', type='text/css', href='css/style_price.css')
+    link(rel='stylesheet', type='text/css', href='css/font-awesome.css')
+    link(rel='stylesheet', type='text/css', href='css/Prompt.css')
+    script(src='js/shared.js')
+    link(rel='stylesheet', href='css/shared.css')
+  body
+    include component/topmenu.pug
+    .wappp
+      .breadcrumb-wapp.clearfix
+        a(href='index.html')
+          span.bt1.left หน้าแรก
+        span.bt1.left  > 
+        //
+          <a href="Blogs.html">
+          <span class="bt1 left">บล็อก</span>
+          </a>
+          <span class="bt1 left">&nbsp;>&nbsp;</span>
+        a(href='price')
+          span.bt1.abt1.left ราคา
+      // breadcrumb-wapp
+      .hr
+        hr.hr1
+      // hr
+      .toppig
+        span.toptext ราคา
+      // toppig
+      #bodypanel.bodypanel.noflexrow
+        .priceheadcon
+          .priceheadchild
+            .priceheadbutton(onclick="$('#modal-tshirt').modal('show')")
+              .priceheadbutton_flex
+                div
+                  span.priceheadbutton_label_main เสื้อยืด
+                  br
+                  span.priceheadbutton_label_sub - คลิก -
+            img(src='im/price_tshirt.png')
+          .priceheadchild
+            .priceheadbutton(onclick="$('#modal-polo').modal('show')")
+              .priceheadbutton_flex
+                div
+                  span.priceheadbutton_label_main เสื้อโปโล
+                  br
+                  span.priceheadbutton_label_sub - คลิก -
+            img(src='im/price_polo.png')
+        hr(style='border-color:black; margin-bottom: 10px;')
+        div(style='text-align:center; margin-bottom: 10px;') หรือประเมิณคร่าวๆด้วยโปรแกรมของทางเราค่ะ
+        .pricecon
+          .controlcon
+            .controlconchild
+              span * ราคาเสื้อรวมสกรีน
+          .controlcon
+            .controlconchild
+              span ประเภทของเสื้อ
+              select#price-type.form-control(onchange='shirttypechange()')
+                option(value='tshirt', selected='') เสื้อยืด
+                option(value='polo') เสื้อโปโล
+          .controlcon
+            .controlconchild
+              span ชนิดของผ้าที่ใช้
+              select#price-fabric.form-control.fabric-tshirt
+                option.tshirtonly(value='cotton', selected='') Cotton
+                option.tshirtonly(value='TC') TC
+                option.poloonly(value='TCbright') TC สีอ่อน
+                option.poloonly(value='TCdark') TC สีเข้ม
+                option(value='TK') TK
+                option.tshirtonly(value='supersoff') Supersoff
+          .controlcon
+            .controlconchild
+              span จำนวนเสื้อ
+              input#price-amount.form-control(type='number', min='1', value='100', placeholder='ใส่ตัวเลขเท่านั้น')
+          .controlcon.price-color
+            .controlconchild
+              span จำนวนสีที่สกรีนด้านหน้า
+              input#price-color-front.form-control(type='number', min='0', value='0', placeholder='ใส่ตัวเลขเท่านั้น')
+          .controlcon.price-color
+            .controlconchild
+              span จำนวนสีที่สกรีนด้านหลัง
+              input#price-color-back.form-control(type='number', min='0', value='0', placeholder='ใส่ตัวเลขเท่านั้น')
+          .controlcon.price-color
+            .controlconchild
+              span จำนวนสีที่สกรีนแขนขวา
+              input#price-color-right.form-control(type='number', min='0', value='0', placeholder='ใส่ตัวเลขเท่านั้น')
+          .controlcon.price-color
+            .controlconchild
+              span จำนวนสีที่สกรีนแขนซ้าย
+              input#price-color-left.form-control(type='number', min='0', value='0', placeholder='ใส่ตัวเลขเท่านั้น')
+          .controlcon
+            .controlconchild.controlconcal
+              button(onclick='calprice()') คำนวณ
+              // <div></span><span id="pricelabel">??</span> <span>&nbsp;บาท / ตัว</span></div>
+          div(style='')  
+          p.bottomtext
+            | วิธีการนับสีสกรีน 
+            a(href='/blog/countscreen') คลิก
+          p.bottomtext
+            | * ลูกค้าสามารถดูคุณสมบัติของเนื้อผ้าได้ที่ 
+            a(href='fabric') เนื้อผ้า
+          p.bottomtext.bottomtext2 ** ลูกค้าที่ประสงค์ปักเสื้อสามารถสอบถามเข้ามาได้ที่ช่องทางการติดต่อเลยนะคะ
+          p.bottomtext.bottomtext2 เนื่องจากมีตัวแปรค่อนข้างมากทำให้ประเมินราคาไม่สะดวกค่า ><
+          script.
+            //calculate price
+            function calprice() {
+              var type = $("#price-type").val();
+              var fabric = $("#price-fabric").val();
+              var amount = parseInt($("#price-amount").val());
+              var colorfront = parseInt($("#price-color-front").val());
+              var colorback = parseInt($("#price-color-back").val());
+              var colorright = parseInt($("#price-color-right").val());
+              var colorleft = parseInt($("#price-color-left").val());
+              var price = 0;
+              if (amount <= 30) {
+                /*if (amount<3) {
+                price = 250;
+                } else if (amount<10) {
+                price = 210;
+                } else if (amount<=30) {
+                price = 185;
+                }
+                if (colorfront>0) price+=50;
+                if (colorback>0) price+=50;
+                if (colorright>0) price+=50;
+                if (colorleft>0) price+=50;*/
+                price = 900000;
+              } else {
+                if (type == "tshirt") {
+                  if (fabric == "cotton") {
+                    if (amount <= 30) price = 900000;
+                    else if (amount <= 69) price = 120;
+                    else if (amount <= 99) price = 110;
+                    else if (amount <= 200) price = 95;
+                    else if (amount <= 400) price = 90;
+                    else if (amount <= 600) price = 85;
+                    else if (amount <= 700) price = 75;
+                    else price = 65;
+                  } else if (fabric == "TC" || fabric == "TK" || fabric == "TCbright" || fabric == "TCdark") {
+                    //if (amount<=70) price=100;
+                    if (amount <= 99) price = 900000;
+                    else if (amount <= 200) price = 85;
+                    else if (amount <= 400) price = 80;
+                    else if (amount <= 600) price = 75;
+                    else if (amount <= 700) price = 65;
+                    else price = 55;
+                  } else if (fabric == "supersoff") {
+                    if (amount <= 99) price = 900000;
+                    else if (amount <= 200) price = 140;
+                    else if (amount <= 400) price = 135;
+                    else if (amount <= 600) price = 130;
+                    else if (amount <= 700) price = 115;
+                    else price = 105;
+                  }
+                  var allcolor = colorfront + colorback + colorright + colorleft - 1;
+                  if (allcolor < 0) allcolor = 0;
+                  price += allcolor * 5;
+                  //block price
+                  if (amount < 100) {
+                    price += (300 * allcolor) / amount;
+                  }
+                } else if (type == "polo") {
+                  if (fabric == "TCbright") {
+                    if (amount <= 99) price = 135;
+                    else if (amount <= 200) price = 130;
+                    else if (amount <= 400) price = 120;
+                    else if (amount <= 600) price = 115;
+                    else if (amount <= 700) price = 105;
+                    else price = 95;
+                  } else if (fabric == "TCdark") {
+                    if (amount <= 99) price = 155;
+                    else if (amount <= 200) price = 150;
+                    else if (amount <= 400) price = 130;
+                    else if (amount <= 600) price = 125;
+                    else if (amount <= 700) price = 115;
+                    else price = 105;
+                  } else if (fabric == "TK") {
+                    if (amount <= 99) price = 120;
+                    else if (amount <= 200) price = 115;
+                    else if (amount <= 400) price = 105;
+                    else if (amount <= 600) price = 95;
+                    else if (amount <= 700) price = 90;
+                    else price = 75;
+                  } else if (fabric == "cotton") {
+                    alert("ผ้าประเภท cotton สำหรับเสื้อยืดเท่านั้นค่ะ");
+                  } else if (fabric == "TC") {
+                    alert("ผ้าประเภท TC สำหรับเสื้อโปโล สีอ่อนและสีเข้มราคาไม่เท่ากัน กรุณาเลือกว่าท่านต้องการสีอ่อนหรือสีเข้มด้วยค่ะ");
+                  }
+                }
+              }
+              price = parseFloat(price).toFixed(2);
+              if (price < 100000) {
+                //$("#pricelabel").html(price);
+                var priceresup =
+                  $("#price-type option:selected").html() +
+                  " ผ้า " + $("#price-fabric option:selected").html() + "<br>" +
+                  " จำนวน " + amount + " ตัว";
+                if (type == "tshirt") {
+                  priceresup += "<br>" +
+                    "สกรีนด้านหน้า " + colorfront + "<br>" +
+                    "สกรีนด้านหลัง " + colorback
+                }
+                $("#priceres-up").html(priceresup);
+                $("#priceres-center").html(price + " บาท/ตัว");
+                $("#priceres-error").hide();
+                $("#priceres").fadeIn(200);
+              } else {
+                $("#priceres-up").html("");
+                $("#priceres-center").html("");
+                $("#priceres-error").show();
+                $("#priceres").fadeIn(200);
+              }
+            }
+            //calprice();
+            function shirttypechange() {
+              //console.log($("#price-type").val());
+              if ($("#price-type").val() == "tshirt") {
+                $("#price-fabric").removeClass("fabric-polo");
+                $("#price-fabric").addClass("fabric-tshirt");
+                $("#price-fabric").val("cotton");
+                $(".price-color").show();
+              } else if ($("#price-type").val() == "polo") {
+                $("#price-fabric").addClass("fabric-polo");
+                $("#price-fabric").removeClass("fabric-tshirt");
+                $("#price-fabric").val("TCbright");
+                $(".price-color").hide();
+              }
+            }
+            setInterval(function() {
+              if (isNaN(parseInt($("#price-amount").val()))) $("#price-amount").val(0);
+              if (isNaN(parseInt($("#price-color-front").val()))) $("#price-color-front").val(0);
+              if (isNaN(parseInt($("#price-color-back").val()))) $("#price-color-back").val(0);
+              if (isNaN(parseInt($("#price-color-left").val()))) $("#price-color-left").val(0);
+              if (isNaN(parseInt($("#price-color-right").val()))) $("#price-color-right").val(0);
+            }, 100);
+        #priceres(style='display:none;')
+          #priceres-up
+          #priceres-center
+          #priceres-error
+            b ไม่สามารถคำนวณได้
+            br
+            b เนื่องจากจำนวนเสื้อน้อยเกินไป
+            br
+            b โปรดติดต่อไปทางช่องทางด้านล่างนี้
+          #priceres-down
+            b แคปรูปและติดต่อสมศรีได้เลยที่
+            br
+            |                         Line 
+            a(target='_blank', href='https://line.me/R/ti/p/%40diz8986o') @somsritshirt
+            br
+            |                         Facebook 
+            a(target='_blank', href='https://www.facebook.com/somsritshirt/?__mref=message_bubble') @somsritshirt
+          center
+            button#priceres-close(onclick="$('#priceres').fadeOut(200);") ปิด
+      #modal-tshirt.modal.fade.bd-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+        .modal-dialog.modal-lg
+          .modal-content
+            .modal-header
+              h5.modal-title ราคาเสื้อยืด
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body
+              img(src='im/price2.jpg', style='width:100%; height:100%;')
+            .modal-footer
+              button.btn.btn-primary(type='button', data-dismiss='modal') ปิด
+      #modal-polo.modal.fade.bd-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+        .modal-dialog.modal-lg
+          .modal-content
+            .modal-header
+              h5.modal-title ราคาเสื้อโปโล
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body
+              img(src='im/price4.jpg', style='width:100%; height:100%;')
+            .modal-footer
+              button.btn.btn-primary(type='button', data-dismiss='modal') ปิด
+    script#dbd-init(src='https://www.trustmarkthai.com/callbackData/initialize.js?t=b5cb10-32-5-30bf4b08f846172a35a5ff39a433191e01d2f99')
+    #Certificate-banners(style='text-align:center;')
+    footer
+      | Copyright © 2017 Somsri T-shirt All Right Reserved.
+      | Tel. 
+      font(color='white') 063-421-6521
+      |   | lineID: 
+      a(target='_blank', href='https://line.me/R/ti/p/%40diz8986o')
+        font(color='white') @somsritshirt
+      |   | FB: 
+      a(target='_blank', href='https://www.facebook.com/somsritshirt/?__mref=message_bubble')
+        font(color='white') สมศรีมีเสื้อ
+    .scroll_top
+      .scroll_top_icon

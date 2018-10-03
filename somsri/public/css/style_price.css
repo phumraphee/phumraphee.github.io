@@ -1,0 +1,307 @@
+.pricecon {
+    width: 100%;
+    height: 750px;
+    background-color: #ee4035;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.controlcon {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.controlconchild {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: promptlight;
+    font-size: 16pt;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.controlconchild span {
+    color: white;
+    
+}
+
+.controlconchild .form-control {
+    font-family: promptlight;
+    width: 50%;
+    /*height: 45px;*/
+    font-size: 14pt;
+}
+
+.priceheadcon {
+    display: flex;
+    font-family: promptlight;
+}
+
+.priceheadchild {
+    width: 50%;
+    position: relative;
+}
+
+.priceheadchild img {
+    width:100%; height:100%;
+}
+
+.priceheadbutton {
+    position: absolute;
+    top: 55%;
+    height: 150px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: rgba(255,0,0,0.6);
+    
+    text-align: center;
+    color: white;
+}
+
+.priceheadbutton:hover {
+    cursor: pointer;
+}
+
+.priceheadbutton_flex {
+    width:100%; height:100%;
+    
+    display:flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+}
+
+.priceheadbutton_label_main {
+    font-size: 22pt;
+}
+
+.priceheadbutton_label_sub {
+    font-size: 16pt;
+}
+
+.bottomtext {
+    font-size: 18pt;
+    font-family: promptlight;
+    color:white;
+}
+
+.bottomtext2 {
+    font-size: 16pt;
+}
+
+.bottomtext a {
+    color: #33ccff;
+}
+
+.controlconchild.controlconcal {
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.controlconchild.controlconcal span {
+    color: white;
+    font-size: 18pt;
+}
+
+.controlconchild.controlconcal button, #priceres-close {
+    /*background-color: gold;*/
+    background-color: #a52241;
+    text-decoration: none;
+    border: none;
+    padding: 20px;
+    font-family: promptmedium;
+    font-size: 20pt;
+}
+
+.controlconchild.controlconcal button:hover {
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 16pt;
+}
+
+.fabric-tshirt .poloonly {
+    display: none;
+}
+
+.fabric-polo .tshirtonly {
+    display: none;
+}
+
+#priceres {
+    position: fixed;
+    margin: auto;
+    width: 60%;
+    height: auto;
+    background-color: rgba(0,0,0,0.7);
+    top: 25%;
+    left: 20%;
+    padding: 10px;
+    color: white;
+    font-family: promptlight;
+}
+
+#priceres-up {
+    text-align: center;
+    font-size: 24pt;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+#priceres-center {
+    text-align: center;
+    font-size: 36pt;
+    margin-bottom: 40px;
+}
+
+#priceres-down {
+    font-size: 18pt;
+}
+
+#priceres-down a {
+    color: gainsboro;
+}
+
+#priceres-error {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width:1023px) {
+    .priceheadbutton {
+        top: 50%;
+    }
+    
+    .bottomtext {
+        font-size: 16pt;
+    }
+    
+    .bottomtext2 {
+        font-size: 14pt;
+    }
+    
+    .controlconchild.controlconcal button {
+        padding: 15px;
+        font-size: 18pt;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .priceheadbutton {
+        top: 45%;
+        height: 125px;
+    }
+    
+    .priceheadbutton_label_main {
+        font-size: 18pt;
+    }
+    
+    .priceheadbutton_label_sub {
+        font-size: 14pt;
+    }
+    
+    .controlcon {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    .controlconchild {
+        font-size: 14pt;
+    }
+    
+    .controlconchild .form-control {
+        font-size: 12pt;
+        width: 125px;
+    }
+    
+    .bottomtext {
+        font-size: 14pt;
+    }
+    
+    .bottomtext2 {
+        font-size: 12pt;
+    }
+    
+    .controlconchild.controlconcal span {
+        font-size: 16pt;
+    }
+    
+    .controlconchild.controlconcal button {
+        padding: 15px;
+        font-size: 16pt;
+    }
+
+    #priceres-up, #priceres-error {
+        font-size: 20pt;
+    }
+
+    #priceres-center {
+        font-size: 32pt;
+    }
+
+    #priceres-down {
+        font-size: 16pt;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .priceheadbutton {
+        top: 45%;
+        height: 100px;
+    }
+    
+    .priceheadbutton_label_main {
+        font-size: 16pt;
+    }
+    
+    .priceheadbutton_label_sub {
+        font-size: 13pt;
+    }
+    
+    .controlconchild {
+        font-size: 12pt;
+    }
+    
+    .controlconchild .form-control {
+        font-size: 11pt;
+        width: 100px;
+    }
+    
+    .bottomtext {
+        font-size: 12pt;
+    }
+    
+    .bottomtext2 {
+        font-size: 11pt;
+    }
+    
+    .controlconchild.controlconcal span {
+        font-size: 14pt;
+    }
+    
+    .controlconchild.controlconcal button {
+        padding: 10px;
+        font-size: 16pt;
+    }
+
+    #priceres {
+        width: 80%;
+        left: 10%;
+    }
+
+    #priceres-up, #priceres-error {
+        font-size: 16pt;
+        line-height: 30px;
+    }
+
+    #priceres-center {
+        font-size: 24pt;
+    }
+
+    #priceres-down {
+        font-size: 14pt;
+    }
+}

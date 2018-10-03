@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>สมศรีมีเสื้อ – ออกแบบเสื้อด้วยโปรแกรมออนไลน์ฟรี</title>
+  <meta charset="utf-8">
+  <meta name="keywords" content="สมศรี,สมศรีมีเสื้อ,รับผลิตเสื้อยืด,รับผลิตเสื้อ,สกรีนเสื้อ,ทำเสื้อ,เสื้อพนักงาน,เสื้อค่าย,เสื้อกิจกรรม,เสื้อโปโล,รับทำเสื้อโปโล,รับผลิตเสื้อโปโล,ผลิตเสื้อโปโล,ออกแบบเสื้อโปโล,โรงงานเสื้อโปโล,ผลิตเสื้อยืด,ออกแบบเสื้อยืด,โรงงานเสื้อยืด,โรงงานสกรีนเสื้อ,สกรีนเสื้อ ราคาถูก">
+  <meta name="description" content="รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="im/som-logo.ico"><!-- fb-->
+  <meta property="og:description" content="รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ">
+  <meta property="og:title" content="สมศรีมีเสื้อ - รับผลิตเสื้อยืด เสื้อโปโล  สกรีนเสื้อ ปักเสื้อ">
+  <meta property="og:image" content="http://somsritshirt.com/im/som_sb2.jpg"><!-- external library (jquery, vue, bootstrap and ...)-->
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script><!-- pace.js : loading progress bar-->
+  <script src="js/pace/pace.min.js"></script>
+  <link rel="stylesheet" href="js/pace/pace-theme-flash.css">
+  <link rel="stylesheet" href="css/fade.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.20/fabric.min.js"></script><!-- css-->
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/style_tgm.css"><!-- togglem-->
+  <!-- me-->
+  <meta name="viewport" type="image/x-icon" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style_shop1.css">
+  <link rel="stylesheet" type="text/css" href="css/style_shop3.css">
+  <link rel="stylesheet" type="text/css" href="css/font_shop3.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="css/Prompt.css">
+  <link rel="stylesheet" type="text/css" href="css/menufixed.css">
+  <script src="js/shared.js"></script>
+  <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" id="topmenu"><a class="navbar-brand" href="index.html"><img src="im/logoo.png"></a><button
+      class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"></ul>
+      <div class="d-flex flex-column">
+        <div class="my-2 pr-2 d-flex justify-content-end" style="color:white;"><input class="p-1 px-2" style="background:transparent; width:250px; /*border: solid 2px;*/"></div>
+        <div>
+          <ul class="navbar-nav mt-2">
+            <li class="nav-item"><a class="nav-link" href="shop">ออกแบบเสื้อ</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio">ผลงานที่ผ่านมา</a></li>
+            <li class="nav-item"><a class="nav-link" href="price">ราคา</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">รายละเอียด</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="size">ขนาดเสื้อ</a><a
+                  class="dropdown-item" href="faq">คำถามที่พบบ่อย</a><a class="dropdown-item" href="fabric">เนื้อผ้า</a><a
+                  class="dropdown-item" href="why">ทำไมต้องเลือกเรา?</a><a class="dropdown-item" href="example">ตัวอย่างเสื้อ</a>
+                <!--<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="#">Something else here</a>-->
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="blog">บทความ</a></li>
+            <li class="nav-item"><a class="nav-link" href="about">เกี่ยวกับเรา</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact">ติดต่อสมศรี</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav><img src="im/line_0.png" style="margin-left:-60px; margin-right:-60px; width:calc(100% + 120px); height:10px;">
+  <div class="d-flex px-2"><img class="topbanner" src="im/topbanner_guarantee.png"><img class="topbanner" src="im/topbanner_loworder.png">
+    <div class="mr-auto"></div><i class="mt-1 mr-2" style="font-size:28px;">" สมศรีขอเลือกสรรสิ่งที่ดีที่สุด เพื่อคุณ "</i>
+  </div>
+  <div id="vue-wrap">
+    <div class="wappp">
+      <div class="breadcrumb-wapp clearfix"><a href="index.html"><span class="bt1 left">หน้าแรก</span></a><span class="bt1 left"> > </span><a
+          href="shop"><span class="bt1 abt1 left">สั่งทำเสื้อ</span></a></div>
+      <div class="hr">
+        <hr class="hr1">
+      </div>
+      <div class="panel">Line : <a href="https://line.me/R/ti/p/%40diz8986o">@somsritshirt</a><br> Facebook : <a href="https://www.facebook.com/somsritshirt/?__mref=message_bubble">@somsritshirt</a><br>
+        Tel : <a href="tel:0634216521">063-421-6521</a><br><br>
+        <div class="panelhead">สมศรี Create</div>
+        <div class="panelbody">
+          <div id="menu-wrap" style="border-right: solid 2px;">
+            <i style="font-size:28px;">ชนิดสินค้า</i><br /><br />
+            <span style="font-size:28px;padding-left:30px">Cotton </span><br />
+            <span style="font-size:28px;padding-left:30px">TC </span><br />
+            <span style="font-size:28px;padding-left:30px">TK </span>
+          </div>
+          <div id="control-wrap" style="padding-left:30px">
+            <ul class="bootstrap nav nav-tabs" id="paneltab" role="tablist">
+              <li class="nav-item"><a class="nav-link active normal-a" id="main-tab-button" data-toggle="tab" href="#"
+                  role="tab" aria-controls="home" aria-selected="true">ปรับแต่งเสื้อผ้า</a></li>
+              <li class="nav-item"><a class="nav-link normal-a" id="img-tab-button" data-toggle="tab" href="#" role="tab"
+                  aria-controls="profile" aria-selected="false">เพิ่มรูปภาพ, รูปร่าง</a></li>
+              <li class="nav-item"><a class="nav-link normal-a" id="text-tab-button" data-toggle="tab" href="#" role="tab"
+                  aria-controls="messages" aria-selected="false">เพิ่มข้อความ</a></li>
+            </ul>
+            <div id="main-tab"><!--▶ <span style="padding-left:30px">เลือกเนื้อผ้า </span><br>
+              <div class="selectdiv">
+                <div class="selectstyle"><select id="texture">
+                    <option>Cotton</option>
+                    <option>TC</option>
+                    <option>TK</option>
+                  </select></div>
+              </div>-->▶ <span style="padding-left:30px">เลือกสีเสื้อ</span><br>
+              <div class="colordiv">
+                <div class="colorcircle" v-for="i in 55" :style="{'background-image':'url(&quot;im/create/Asset ('+(3*i)+').jpg&quot;)'}"
+                  v-on:click="updateshirt(i);"></div>
+              </div>
+            </div>
+            <div id="img-tab"><span id="img-tab-create">
+                <div style="margin-bottom:15px;">▶ <span style="padding-left:30px">เพิ่มรูปภาพ</span><br><input class="form-control"
+                    id="img-tab-input" type="file" onchange="setimginputsrc(event);"><br><!-- <button id="img-tab-submit" type="button" class="btn btn-primary" onclick="addimage(event);">เพิ่มรูปภาพ</button>-->
+                </div>
+              </span><span id="img-tab-edit" style="display: none;">▶ <span style="padding-left:30px">แก้ไขรูปภาพ</span><br>
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="sendToBack(event);">นำไปไว้ข้างหลังสุด</button><button
+                    class="btn btn-primary" type="button" onclick="sendBackward(event);">เลื่อนไปข้างหลัง</button></div>
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="sendToFront(event);">นำไปไว้ข้างหน้าสุด</button><button
+                    class="btn btn-primary" type="button" onclick="sendForward(event);">เลื่อนไปข้างหน้า</button></div>
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="flipHorizontal(event);">พลิกแนวนอน</button><button
+                    class="btn btn-primary" type="button" onclick="flipVertical(event);">พลิกแนวตั้ง</button></div>
+              </span><span id="img-tab-shape">
+                <div id="img-tab-shape-create" style="margin-bottom:15px;">▶ <span style="padding-left:30px">เพิ่มรูปร่าง</span><br><button
+                    class="btn btn-secondary shapebtn" style="background:url('im/create/button/line.jpg');" onclick="addshape_line()"></button><button
+                    class="btn btn-secondary shapebtn" style="background:url('im/create/button/rect.jpg');" onclick="addshape_rect()"></button><button
+                    class="btn btn-secondary shapebtn" style="background:url('im/create/button/circle.jpg');" onclick="addshape_circle()"></button></div>
+                <div id="img-tab-shape-edit" style="margin-bottom:15px;">▶ <span style="padding-left:30px">แก้ไขรูปร่าง</span><br><br><button
+                    class="btn btn-primary" onclick="inc_strokewidth()">ทำให้หนาขึ้น</button><button class="btn btn-primary"
+                    onclick="dec_strokewidth()">ทำให้บางลง</button></div>
+                <div style="margin-bottom:15px;">สีเส้น :<input class="form-control" id="shape-tab-color" onchange="updateshape()"
+                    type="color"><br> สีเติมข้างใน :<input class="form-control" id="shape-tab-color-fill" onchange="updateshape()"
+                    type="color" disabled=""><input id="shape-tab-color-nofill" type="checkbox" style="margin-top:-5px;"
+                    checked="" onchange="nofill_change()"> ไม่เติม <br></div>
+              </span></div>
+            <div id="text-tab">▶ <span id="text-tab-textlabel" style="padding-left:30px">ข้อความ</span><br><textarea
+                class="form-control" id="text-tab-input" onkeyup="updatetext()"></textarea>
+              <div style="margin-bottom:15px;">▶ <span style="padding-left:30px; margin-right: 15px">สี</span><input
+                  class="form-control" id="text-tab-color" onchange="updatetext()" type="color"><br></div> ▶ <span
+                style="padding-left:30px; margin-right: 15px">Font</span><br><select class="custom-select" id="text-tab-font"
+                v-model="selectedfont" :style="{'font-family':selectedfont}" onchange="updatetext()">
+                <option v-for="f in fontfamily" :value="f" :style="{'font-family':f}">{{ f }}</option>
+              </select><br><button class="btn btn-primary" id="text-tab-submit" type="button" onclick="addtext();">เพิ่มข้อความ</button><span
+                id="text-tab-edit" style="display: none;">
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="sendToBack(event);">นำไปไว้ข้างหลังสุด</button><button
+                    class="btn btn-primary" type="button" onclick="sendBackward(event);">เลื่อนไปข้างหลัง</button></div>
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="sendToFront(event);">นำไปไว้ข้างหน้าสุด</button><button
+                    class="btn btn-primary" type="button" onclick="sendForward(event);">เลื่อนไปข้างหน้า</button></div>
+                <div class="controlrow"><button class="btn btn-primary" type="button" onclick="flipHorizontal(event);">พลิกแนวนอน</button><button
+                    class="btn btn-primary" type="button" onclick="flipVertical(event);">พลิกแนวตั้ง</button></div>
+              </span>
+            </div>
+          </div>
+          <div id="canvas-wrap">
+            <ul class="bootstrap nav nav-tabs" id="canvastab" role="tablist">
+              <li class="nav-item"><a class="nav-link active normal-a" id="canvas-front-button" data-toggle="tab" href="#"
+                  role="tab" aria-controls="home" aria-selected="true">ด้านหน้า</a></li>
+              <li class="nav-item"><a class="nav-link normal-a" id="canvas-back-button" data-toggle="tab" href="#" role="tab"
+                  aria-controls="profile" aria-selected="false">ด้านหลัง</a></li>
+            </ul>
+            <center><canvas id="frontcanvas"></canvas><canvas id="backcanvas"></canvas></center><button class="btn btn-primary"
+              id="text-tab-submit" type="button" onclick="doexport();">Save</button>
+          </div>
+        </div>
+      </div>
+    </div><canvas id="exportcanvas"></canvas><!-- font preload--><span v-for="f in fontfamily" :style="{'font-family':f}"></span>
+  </div>
+  <script src="component/img_lazy.js"></script>
+  <script>//font control section (need to register to vue component)
+    var fontfamily = ['promptlight', 'Athiti', 'Bangnampueng', 'Kanit', 'Lobster', 'Prompt', 'Quark', 'RSU', 'SanamDeklen', 'Sri Sury Wongse', 'Supermarket', 'Superspace', 'Ailerons', 'EkkamaiStandard', 'Gardenia', 'KjrKrajidridXL', 'Panton', 'SanamDeklen_chaya', 'YeahPapa'];
+    //end font control section
+    new Vue({
+      el: '#vue-wrap',
+      data: {
+        fontfamily: fontfamily,
+        selectedfont: 'promptlight'
+      }
+    });</script>
+  <script>var fcanvas = new fabric.Canvas('frontcanvas', {
+      preserveObjectStacking: true,
+      allowTouchScrolling: true,
+      perPixelTargetFind: true,
+      targetFindTolerance: 6
+    }); //preserveObjectStacking disable go to top when selected
+    var bcanvas = new fabric.Canvas('backcanvas', {
+      preserveObjectStacking: true,
+      allowTouchScrolling: true,
+      perPixelTargetFind: true,
+      targetFindTolerance: 6
+    });
+    var canvas = fcanvas;
+    var currid = 1;
+    var currcontrol = 0;
+    var canvastype = 0; //0:front 1:back
+    var selectedval;
+
+    function resizecanvas() {
+      var width = $("#canvas-wrap").width();
+      var zoomlv = 1;
+      if (width < 500) {
+        zoomlv = width / 500;
+      } else {
+        width = 500;
+      }
+      fcanvas.setWidth(width);
+      fcanvas.setHeight(width * 592 / 511);
+      fcanvas.setZoom(zoomlv);
+      fcanvas.selection = false;
+      fcanvas.calcOffset();
+      bcanvas.setWidth(width);
+      bcanvas.setHeight(width * 592 / 511);
+      bcanvas.selection = false;
+      bcanvas.setZoom(zoomlv);
+      bcanvas.calcOffset();
+      $(".fabricimg").width(fcanvas.getWidth());
+      $(".fabricimg").height(fcanvas.getHeight());
+    }
+    resizecanvas();
+    $(window).resize(resizecanvas);
+    //initialize background (shirt img)
+    var fshirtobj, bshirtobj;
+    $(window).on("load", function () {
+      var shirtid = getParameterByName('shirtid');
+      if (shirtid) currid = shirtid;
+      var fshirtimg = new Image();
+      fshirtimg.src = 'im/create/Asset (' + (3 * currid - 2) + ').jpg';
+      var bshirtimg = new Image();
+      bshirtimg.src = 'im/create/Asset (' + (3 * currid - 1) + ').jpg';
+      fshirtobj = new fabric.Image(fshirtimg);
+      bshirtobj = new fabric.Image(bshirtimg);
+      fshirtimg.onload = function () {
+        var fcanvas_data = getParameterByName('fdata');
+        if (fcanvas_data) {
+          loadshirtdata(fcanvas, JSON.parse(fcanvas_data));
+          setTimeout(function () {
+            fshirtobj = fcanvas._objects[0];
+            fshirtobj.selectable = false;
+          }, 100);
+        } else {
+          fshirtobj.set({
+            left: 10,
+            top: 10,
+            width: fcanvas.getWidth() - 20,
+            height: fcanvas.getHeight() - 20
+          });
+          fshirtobj.selectable = false;
+          fcanvas.add(fshirtobj);
+        }
+      };
+      bshirtimg.onload = function () {
+        var bcanvas_data = getParameterByName('bdata');
+        if (bcanvas_data) {
+          loadshirtdata(bcanvas, JSON.parse(bcanvas_data));
+          setTimeout(function () {
+            bshirtobj = bcanvas._objects[0];
+            bshirtobj.selectable = false;
+          }, 100);
+        } else {
+          bshirtobj.set({
+            left: 10,
+            top: 10,
+            width: bcanvas.getWidth() - 20,
+            height: bcanvas.getHeight() - 20
+          });
+          bshirtobj.selectable = false;
+          bcanvas.add(bshirtobj);
+        }
+      };
+
+      function loadshirtdata(target_canvas, data) {
+        target_canvas.loadFromJSON(data);
+      }
+    });
+    //end initialize
+    function updateshirt(id) {
+      currid = id;
+      var fshirtimg = new Image();
+      fshirtimg.src = 'im/create/Asset (' + (3 * id - 2) + ').jpg';
+      var bshirtimg = new Image();
+      bshirtimg.src = 'im/create/Asset (' + (3 * id - 1) + ').jpg';
+      fshirtobj.setElement(fshirtimg);
+      bshirtobj.setElement(bshirtimg);
+      fshirtimg.onload = function () {
+        fshirtobj.set({
+          left: 10,
+          top: 10,
+          width: fcanvas.getWidth() - 20,
+          height: fcanvas.getHeight() - 20
+        });
+        fshirtobj.selectable = false;
+        fcanvas.renderAll();
+      };
+      bshirtimg.onload = function () {
+        bshirtobj.set({
+          left: 10,
+          top: 10,
+          width: bcanvas.getWidth() - 20,
+          height: bcanvas.getHeight() - 20
+        });
+        bshirtobj.selectable = false;
+        bcanvas.renderAll();
+      };
+    }
+    //updateshirt(1);
+    function exportCanvasJSON() {
+      var link = "https://somsritshirt.com/shop?shirtid=" + currid + "&fdata=" + encodeURIComponent(JSON.stringify(fcanvas.toJSON())) + "&bdata=" + encodeURIComponent(JSON.stringify(bcanvas.toJSON()));
+      $.ajax({
+        url: "https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+        type: 'POST',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({
+          //"longDynamicLink": "https://somsritshirt.page.link/?link="+link+"&apn=com.example.android&ibi=com.example.ios",
+          "dynamicLinkInfo": {
+            "dynamicLinkDomain": "somsritshirt.page.link",
+            "link": link,
+            "androidInfo": {
+              "androidPackageName": "com.example.android"
+            },
+            "iosInfo": {
+              "iosBundleId": "com.example.ios"
+            }
+          },
+          "suffix": {
+            "option": "SHORT"
+          }
+        })
+      }).done(function (data) {
+        console.log(data);
+      });
+    } { //start shape section
+      function addshape_line() {
+        //var text = $("#text-tab-input").val();
+        var color = $("#shape-tab-color").val();
+        //var font = $('#text-tab-font').find(":selected").val();
+        if (!canvas.getActiveObject()) {
+          var line = new fabric.Line([150, 150, 160, 250], {
+            stroke: color,
+            strokeWidth: 3,
+            angle: 5.8
+          })
+          line.setControlsVisibility({
+            tr: true,
+            tl: false,
+            br: true,
+            bl: false,
+            mt: false,
+            ml: false,
+            mr: false,
+            mb: false
+          });
+          canvas.add(line)
+          clearselection();
+        } else { }
+      }
+
+      function addshape_rect() {
+        //var text = $("#text-tab-input").val();
+        var color = $("#shape-tab-color").val();
+        var colorfill = $("#shape-tab-color-fill").val();
+        var nofill = $("#shape-tab-color-nofill").is(":checked");
+        //var font = $('#text-tab-font').find(":selected").val();
+        if (!canvas.getActiveObject()) {
+          var rect = new fabric.Rect({
+            width: 100,
+            height: 100,
+            left: 150,
+            top: 150,
+            stroke: color,
+            strokeWidth: 3,
+          })
+          if (!nofill) rect.fill = colorfill;
+          else rect.fill = 'rgba(0,0,0,0)';
+          canvas.add(rect)
+          clearselection();
+        } else { }
+      }
+
+      function addshape_circle() {
+        //var text = $("#text-tab-input").val();
+        var color = $("#shape-tab-color").val();
+        var colorfill = $("#shape-tab-color-fill").val();
+        var nofill = $("#shape-tab-color-nofill").is(":checked");
+        //var font = $('#text-tab-font').find(":selected").val();
+        if (!canvas.getActiveObject()) {
+          var rect = new fabric.Circle({
+            radius: 50,
+            left: 150,
+            top: 150,
+            stroke: color,
+            strokeWidth: 3,
+          })
+          if (!nofill) rect.fill = colorfill;
+          else rect.fill = 'rgba(0,0,0,0)';
+          canvas.add(rect)
+          clearselection();
+        } else { }
+      }
+
+      function nofill_change() {
+        var nofill = $("#shape-tab-color-nofill").is(":checked");
+        if (nofill) {
+          $("#shape-tab-color-fill").prop("disabled", true);
+        } else {
+          $("#shape-tab-color-fill").prop("disabled", false);
+        }
+        updateshape();
+      }
+
+      function updateshape() {
+        if (selectedobj) {
+          //console.log("aaa");
+          selectedobj.setStroke($("#shape-tab-color").val());
+          if (!$("#shape-tab-color-nofill").is(":checked")) {
+            selectedobj.setFill($("#shape-tab-color-fill").val());
+          } else {
+            selectedobj.setFill('rgba(0,0,0,0)');
+          }
+          canvas.renderAll();
+        }
+      }
+
+      function dec_strokewidth() {
+        if (selectedobj) {
+          selectedobj.setStrokeWidth(selectedobj.getStrokeWidth() * 75 / 100);
+          canvas.renderAll();
+        }
+      }
+
+      function inc_strokewidth() {
+        if (selectedobj) {
+          selectedobj.setStrokeWidth(selectedobj.getStrokeWidth() * 125 / 100);
+          canvas.renderAll();
+        }
+      }
+    }
+    //start text section
+    function addtext() {
+      var text = $("#text-tab-input").val();
+      var color = $("#text-tab-color").val();
+      var font = $('#text-tab-font').find(":selected").val();
+      if (!canvas.getActiveObject()) {
+        canvas.add(new fabric.Text(text, {
+          left: 200,
+          top: 200,
+          fontFamily: font,
+          fill: color
+        }));
+        clearselection();
+      } else { }
+    }
+
+    function updatetext() {
+      if (selectedobj) {
+        //console.log("aaa");
+        selectedobj.setText($("#text-tab-input").val());
+        selectedobj.setColor($("#text-tab-color").val());
+        selectedobj.setFontFamily($("#text-tab-font").val());
+        canvas.renderAll();
+      }
+    }
+    //end text section
+    //start image section
+    var imginputsrc = "";
+
+    function setimginputsrc(e) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = function (event) {
+        imginputsrc = event.target.result;
+        addimage();
+        $("#img-tab-input").val("");
+      };
+    }
+
+    function addimage() {
+      if (!imginputsrc || imginputsrc == "") return;
+      var imgobj = fabric.Image.fromURL(imginputsrc, function (img) {
+        if (img.width > 200) {
+          var resizefactor = img.width / 200; //width = 100 , height aspect ratio
+          img.width /= resizefactor;
+          img.height /= resizefactor;
+        }
+        img.left = 150;
+        img.top = 150;
+        canvas.add(img);
+      });
+    }
+    //end image section
+    //text and img section
+    function repairshirtobj() {
+      if (canvastype == 0) {
+        fshirtobj.sendToBack();
+      } else {
+        bshirtobj.sendToBack();
+      }
+      canvas.renderAll();
+    }
+
+    function sendToBack() {
+      selectedobj.sendToBack();
+      repairshirtobj(); //already run renderAll in this function
+      //hardrenderAll();
+    }
+
+    function sendToFront() {
+      selectedobj.bringToFront();
+      repairshirtobj(); //already run renderAll in this function
+      //hardrenderAll();
+    }
+
+    function sendBackward() {
+      selectedobj.sendBackwards();
+      repairshirtobj(); //already run renderAll in this function
+    }
+
+    function sendForward() {
+      selectedobj.bringForward();
+      repairshirtobj(); //already run renderAll in this function
+    }
+
+    function flipHorizontal() {
+      selectedobj.flipX = !selectedobj.flipX;
+      canvas.renderAll();
+    }
+
+    function flipVertical() {
+      selectedobj.flipY = !selectedobj.flipY;
+      canvas.renderAll();
+    }
+    //end text and img section
+    //start selection section
+    function event_selected() {
+      selectedobj = canvas.getActiveObject();
+      $("#paneltab").find("a").removeClass("active");
+      //console.log(selectedobj);
+      if (selectedobj.type == "text") {
+        $("#text-tab-textlabel").html("แก้ไขข้อความ");
+        $("#text-tab-submit").hide();
+        $("#text-tab-input").val(selectedobj.text);
+        $("#text-tab-color").val(selectedobj.fill);
+        $("#text-tab-font").val(selectedobj.fontFamily);
+        $("#text-tab-edit").show();
+      } else if (selectedobj.type == "image") {
+        $("#img-tab-create").hide();
+        $("#img-tab-edit").show();
+        $("#img-tab-shape").hide();
+      } else { //shape
+        $("#img-tab-create").hide();
+        $("#img-tab-shape-create").hide();
+        $("#img-tab-shape-edit").show();
+      }
+    }
+    fcanvas.on('object:selected', event_selected);
+    bcanvas.on('object:selected', event_selected);
+    fcanvas.on('selection:cleared', function () {
+      clearselection();
+    });
+    bcanvas.on('selection:cleared', function () {
+      clearselection();
+    });
+    //end selection section
+    //start export section
+    var ecanvas = new fabric.Canvas("exportcanvas");
+    ecanvas.setWidth(fcanvas.getWidth() * 4);
+    ecanvas.setHeight(fcanvas.getHeight() * 2 + 80);
+    $("#exportcanvas").parent().hide();
+
+    function downloadURI(uri, name) {
+      function dataURIToBlob(dataURI) {
+        var binStr = atob(dataURI.split(',')[1]),
+          len = binStr.length,
+          arr = new Uint8Array(len);
+        for (var i = 0; i < len; i++) {
+          arr[i] = binStr.charCodeAt(i);
+        }
+        return new Blob([arr]);
+      }
+      var link = document.createElement("a");
+      link.download = name;
+      link.href = URL.createObjectURL(dataURIToBlob(uri));
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      //delete link;
+    }
+
+    function doexport() {
+      ecanvas.clear();
+
+      function zoom(c, lv) {
+        var factor = lv / c.getZoom();
+        c.setZoom(lv);
+        c.setWidth(c.getWidth() * factor);
+        c.setHeight(c.getHeight() * factor);
+      }
+      zoom(fcanvas, 2);
+      zoom(bcanvas, 2);
+      var fok = false;
+      var bok = false;
+      var textok = false;
+      fabric.Image.fromURL(fcanvas.toDataURL(), function (img) {
+        img.set({
+          left: 0,
+          top: 0,
+          scaleX: 1 / devicePixelRatio,
+          scaleY: 1 / devicePixelRatio
+        });
+        img.selectable = false;
+        ecanvas.add(img);
+        img.sendToBack();
+        fok = true;
+      });
+      fabric.Image.fromURL(bcanvas.toDataURL(), function (img) {
+        img.set({
+          left: fcanvas.getWidth(),
+          top: 0,
+          scaleX: 1 / devicePixelRatio,
+          scaleY: 1 / devicePixelRatio
+        });
+        img.selectable = false;
+        ecanvas.add(img);
+        img.sendToBack();
+        bok = true;
+      });
+
+      function hotfix_colorcode(code) {
+        switch (code) {
+          case 01:
+            return 01;
+            break;
+          case 02:
+            return 02;
+            break;
+          case 03:
+            return 03;
+            break;
+          case 04:
+            return 04;
+            break;
+          case 05:
+            return 33;
+            break;
+          case 06:
+            return 34;
+            break;
+          case 07:
+            return 35;
+            break;
+          case 08:
+            return 36;
+            break;
+          case 09:
+            return 05;
+            break;
+          case 10:
+            return 06;
+            break;
+          case 11:
+            return 07;
+            break;
+          case 12:
+            return 08;
+            break;
+          case 13:
+            return 37;
+            break;
+          case 14:
+            return 38;
+            break;
+          case 15:
+            return 39;
+            break;
+          case 16:
+            return 40;
+            break;
+          case 17:
+            return 09;
+            break;
+          case 18:
+            return 10;
+            break;
+          case 19:
+            return 11;
+            break;
+          case 20:
+            return 12;
+            break;
+          case 21:
+            return 41;
+            break;
+          case 22:
+            return 42;
+            break;
+          case 23:
+            return 43;
+            break;
+          case 24:
+            return 44;
+            break;
+          case 25:
+            return 13;
+            break;
+          case 26:
+            return 14;
+            break;
+          case 27:
+            return 15;
+            break;
+          case 28:
+            return 16;
+            break;
+          case 29:
+            return 45;
+            break;
+          case 30:
+            return 46;
+            break;
+          case 31:
+            return 47;
+            break;
+          case 32:
+            return 48;
+            break;
+          case 33:
+            return 17;
+            break;
+          case 34:
+            return 18;
+            break;
+          case 35:
+            return 19;
+            break;
+          case 36:
+            return 20;
+            break;
+          case 37:
+            return 49;
+            break;
+          case 38:
+            return 50;
+            break;
+          case 39:
+            return 51;
+            break;
+          case 40:
+            return 52;
+            break;
+          case 41:
+            return 21;
+            break;
+          case 42:
+            return 22;
+            break;
+          case 43:
+            return 23;
+            break;
+          case 44:
+            return 24;
+            break;
+          case 45:
+            return 53;
+            break;
+          case 46:
+            return 54;
+            break;
+          case 47:
+            return 55;
+            break;
+          case 48:
+            return 25;
+            break;
+          case 49:
+            return 26;
+            break;
+          case 50:
+            return 27;
+            break;
+          case 51:
+            return 28;
+            break;
+          case 52:
+            return 29;
+            break;
+          case 53:
+            return 30;
+            break;
+          case 54:
+            return 31;
+            break;
+          case 55:
+            return 32;
+            break;
+        }
+      }
+      ecanvas.add(new fabric.Text("Color code : " + hotfix_colorcode(currid) + " , เนื้อผ้า : " + $("#texture").val(), {
+        left: 20,
+        top: fcanvas.getHeight() + 10,
+        fontFamily: 'promptlight',
+        fill: 'red'
+      }));
+      textok = true;
+      var interval = setInterval(function () {
+        if (fok && bok && textok) {
+          setTimeout(function () {
+            downloadURI(ecanvas.toDataURL(), "somsritshirt.png");
+            zoom(fcanvas, 1);
+            zoom(bcanvas, 1);
+            clearInterval(interval);
+            console.log("download run");
+          }, 1);
+        }
+      }, 100);
+    }
+    //end export section
+    $(window).keydown(function (e) {
+      switch (e.keyCode) {
+        case 46: // delete
+          var obj = canvas.getActiveObject();
+          canvas.remove(obj);
+          canvas.renderAll();
+          return false;
+      }
+      return; //using "return" other attached events will execute
+    });
+
+    function clearselection() {
+      selectedobj = null;
+      canvas.deactivateAll().renderAll();
+      $("#text-tab-submit").show();
+      $("#text-tab-textlabel").html("ข้อความ");
+      $("#text-tab-input").val("");
+      //$("#text-tab-color").val("#000000");
+      $("#text-tab-edit").hide();
+      $("#img-tab-create").show();
+      $("#img-tab-edit").hide();
+      $("#img-tab-shape-create").show();
+      $("#img-tab-shape-edit").hide();
+      $("#img-tab-shape").show();
+      switchcontrol(currcontrol, true);
+    }
+    //tab control system
+    function switchcanvas(id) {
+      clearselection();
+      canvastype = id;
+      if (id == 0) {
+        //front
+        $("#backcanvas").parent().hide();
+        $("#frontcanvas").parent().show();
+        $("#canvas-back-button").removeClass("active");
+        $("#canvas-front-button").addClass("active");
+        canvas = fcanvas;
+      } else {
+        //back
+        $("#backcanvas").parent().show();
+        $("#frontcanvas").parent().hide();
+        $("#canvas-front-button").removeClass("active");
+        $("#canvas-back-button").addClass("active");
+        canvas = bcanvas;
+      }
+      resizecanvas();
+    }
+    switchcanvas(0);
+    $("#canvas-front-button").click(function (e) {
+      switchcanvas(0);
+      e.preventDefault();
+      return false;
+    });
+    $("#canvas-back-button").click(function (e) {
+      switchcanvas(1);
+      e.preventDefault();
+      return false;
+    });
+
+    function switchcontrol(id, notcls) {
+      if (!notcls) clearselection();
+      $("#paneltab").find("a").removeClass("active");
+      if (id == 0) {
+        $("#main-tab").show();
+        $("#img-tab").hide();
+        $("#text-tab").hide();
+        $("#main-tab-button").addClass("active");
+      } else if (id == 1) {
+        $("#main-tab").hide();
+        $("#img-tab").show();
+        $("#text-tab").hide();
+        $("#img-tab-button").addClass("active");
+      } else if (id == 2) {
+        $("#main-tab").hide();
+        $("#img-tab").hide();
+        $("#text-tab").show();
+        $("#text-tab-button").addClass("active");
+      }
+      currcontrol = id;
+    }
+    switchcontrol(0);
+    $("#main-tab-button").click(function (e) {
+      switchcontrol(0);
+      e.preventDefault();
+      return false;
+    });
+    $("#img-tab-button").click(function (e) {
+      switchcontrol(1);
+      e.preventDefault();
+      return false;
+    });
+    $("#text-tab-button").click(function (e) {
+      switchcontrol(2);
+      e.preventDefault();
+      return false;
+    });
+    //end tab control system
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\\+/g, ' '));
+    }</script>
+  <script id="dbd-init" src="https://www.trustmarkthai.com/callbackData/initialize.js?t=b5cb10-32-5-30bf4b08f846172a35a5ff39a433191e01d2f99"></script>
+  <div id="Certificate-banners" style="text-align:center;"></div>
+  <footer>Copyright © 2017 Somsri T-shirt All Right Reserved.
+    Tel. <font color="white">063-421-6521</font> | lineID: <a target="_blank" href="https://line.me/R/ti/p/%40diz8986o">
+      <font color="white">@somsritshirt</font>
+    </a> | FB: <a target="_blank" href="https://www.facebook.com/somsritshirt/?__mref=message_bubble">
+      <font color="white">สมศรีมีเสื้อ</font>
+    </a></footer>
+  <div class="scroll_top">
+    <div class="scroll_top_icon"></div>
+  </div>
+</body>
+
+</html>

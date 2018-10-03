@@ -1,0 +1,131 @@
+doctype html
+html
+  head
+    title สมศรีมีเสื้อ - บล็อก
+    meta(charset='utf-8')
+    meta(name='keywords', content='สมศรี,สมศรีมีเสื้อ,รับผลิตเสื้อยืด,รับผลิตเสื้อ,สกรีนเสื้อ,ทำเสื้อ,เสื้อพนักงาน,เสื้อค่าย,เสื้อกิจกรรม,เสื้อโปโล,รับทำเสื้อโปโล,รับผลิตเสื้อโปโล,ผลิตเสื้อโปโล,ออกแบบเสื้อโปโล,โรงงานเสื้อโปโล,ผลิตเสื้อยืด,ออกแบบเสื้อยืด,โรงงานเสื้อยืด,โรงงานสกรีนเสื้อ,สกรีนเสื้อ ราคาถูก')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon', href='im/som-logo.ico')
+    // fb
+    meta(property='og:description', content='รับผลิตเสื้อยืด เสื้อโปโล สกรีนเสื้อ ปักเสื้อ ราคาย่อมเยา ไม่แพง พร้อมรับประกันคุณภาพและความพึงพอใจ')
+    meta(property='og:title', content='สมศรีมีเสื้อ - รับผลิตเสื้อยืด เสื้อโปโล  สกรีนเสื้อ ปักเสื้อ')
+    meta(property='og:image', content='http://somsritshirt.com/im/som_sb2.jpg')
+    // external library (jquery, vue, bootstrap and ...)
+    script(src='js/jquery.min.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js')
+    // pace.js : loading progress bar
+    script(src='js/pace/pace.min.js')
+    link(rel='stylesheet', href='js/pace/pace-theme-flash.css')
+    link(rel='stylesheet', href='css/fade.css')
+    // css
+    link(rel='stylesheet', href='css/normalize.min.css')
+    link(rel='stylesheet', href='css/style_tgm.css')
+    link(rel='stylesheet', href='css/style.css')
+    // togglem
+    // me
+    meta(name='viewport', type='image/x-icon', content='width=device-width,initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='css/reset.css')
+    link(rel='stylesheet', type='text/css', href='css/style_Blogs.css')
+    link(rel='stylesheet', type='text/css', href='css/font-awesome.css')
+    link(rel='stylesheet', type='text/css', href='css/Prompt.css')
+    link(rel='stylesheet', href='css/menufixed.css')
+    script(src='js/shared.js')
+    link(rel='stylesheet', href='css/shared.css')
+  body
+    include component/topmenu.pug
+    .wappp
+      .breadcrumb-wapp.clearfix
+        a(href='index.html')
+          span.bt1.left หน้าแรก
+        span.bt1.left  > 
+        a(href='Blogs.html')
+          span.bt1.abt1.left บล็อก
+      // breadcrumb-wapp
+      .hr
+        hr.hr1
+      // hr
+      .toppig
+        span.toptext บทความ
+      .consh
+        .loading กำลังโหลด กรุณารอ ...
+      // toppig
+      .comming
+        span.com1text COMING SOON
+        br
+        span.com2text พบกับบทความต่าง ๆ จากสมศรีมีเสื้อ
+        br
+        span.com2text ที่นี่ เร็ว ๆ นี้
+      // comming
+    script#dbd-init(src='https://www.trustmarkthai.com/callbackData/initialize.js?t=b5cb10-32-5-30bf4b08f846172a35a5ff39a433191e01d2f99')
+    #Certificate-banners(style='text-align:center;')
+    script(src='https://www.gstatic.com/firebasejs/4.9.0/firebase.js')
+    script(src='https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js')
+    script.
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyCKxEYUtxMrevfSLSRHKUHc7gKTSKBZ-Vg",
+      authDomain: "somsritshirt-ced49.firebaseapp.com",
+      databaseURL: "https://somsritshirt-ced49.firebaseio.com",
+      projectId: "somsritshirt-ced49",
+      storageBucket: "somsritshirt-ced49.appspot.com",
+      messagingSenderId: "99816736698"
+      };
+      firebase.initializeApp(config);
+      var db = firebase.firestore();
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+    script.
+      var blogdata = [{
+        id: "",
+        data: {
+          topic: "",
+          order: 0,
+          body: []
+        }
+      }];
+      var blogbodybak = [];
+      db.collection("blog").orderBy("order").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          blogdata.push({
+            id: doc.id,
+            data: doc.data()
+          });
+        });
+        blogdata.shift();
+        //vm_edit.$forceUpdate();
+        return;
+      }).then(function() {
+        blogdata.forEach(function(val) {
+          var ele = $('<div class="dice_wrapper dic1""> <div id="dice"> <div id="top"> <a href="#"> <div class="con1 blogbtn"> </div> </a> </div> </div> </div>').appendTo($('.consh'));
+          ele.find("a").attr("href", "/blog/" + val.id);
+          ele.click(function() {
+            window.location = "/blog/" + val.id;
+          });
+          var con1 = ele.find(".con1");
+          con1.css('background-image', 'url(' + val.data.btn + ')');
+          con1.mouseover(function() {
+            con1.css('background-image', 'url(' + val.data.btnhover + ')');
+          });
+          con1.mouseout(function() {
+            con1.css('background-image', 'url(' + val.data.btn + ')');
+          });
+          //console.log(ele.find(".con1"));
+        });
+        $(".consh .loading").fadeOut(1000);
+      });
+    footer
+      | Copyright © 2017 Somsri T-shirt All Right Reserved.
+      | Tel. 
+      font(color='white') 063-421-6521
+      |   | lineID: 
+      a(target='_blank', href='https://line.me/R/ti/p/%40diz8986o')
+        font(color='white') @somsritshirt
+      |   | FB: 
+      a(target='_blank', href='https://www.facebook.com/somsritshirt/?__mref=message_bubble')
+        font(color='white') สมศรีมีเสื้อ
+    .scroll_top
+      .scroll_top_icon

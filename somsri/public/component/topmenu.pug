@@ -1,0 +1,44 @@
+nav#topmenu.navbar.navbar-expand-lg.navbar-dark
+  a.navbar-brand(href='index.html')
+    img(src='im/logoo.png')
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+    .d-flex.flex-column
+      .my-2.pr-2.d-flex.justify-content-end(style='color:white;')
+        input.p-1.px-2(style='background:transparent; width:250px; /*border: solid 2px;*/')
+      div
+        ul.navbar-nav.mt-2
+          li.nav-item
+            a.nav-link(href='shop') ออกแบบเสื้อ
+          li.nav-item
+            a.nav-link(href='portfolio') ผลงานที่ผ่านมา
+          li.nav-item
+            a.nav-link(href='price') ราคา
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | รายละเอียด
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='size') ขนาดเสื้อ
+              a.dropdown-item(href='faq') คำถามที่พบบ่อย
+              a.dropdown-item(href='fabric') เนื้อผ้า
+              a.dropdown-item(href='why') ทำไมต้องเลือกเรา?
+              a.dropdown-item(href='example') ตัวอย่างเสื้อ
+              //
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+          li.nav-item
+            a.nav-link(href='blog') บทความ
+          li.nav-item
+            a.nav-link(href='about') เกี่ยวกับเรา
+          li.nav-item
+            a.nav-link(href='contact') ติดต่อสมศรี
+
+img(src='im/line_0.png', style='margin-left:-60px; margin-right:-60px; width:calc(100% + 120px); height:10px;')
+
+.d-flex.px-2
+  img.topbanner(src="im/topbanner_guarantee.png")
+  img.topbanner(src="im/topbanner_loworder.png")
+  .mr-auto
+  i.mt-1.mr-2(style="font-size:28px;") " สมศรีขอเลือกสรรสิ่งที่ดีที่สุด เพื่อคุณ "
