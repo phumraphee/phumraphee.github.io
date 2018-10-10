@@ -79,10 +79,13 @@
         <div class="panelhead">สมศรี Create</div>
         <div class="panelbody">
           <div id="menu-wrap" style="border-right: solid 2px;">
-            <i style="font-size:28px;">ชนิดสินค้า</i><br /><br />
-            <span style="font-size:28px;padding-left:30px">Cotton </span><br />
-            <span style="font-size:28px;padding-left:30px">TC </span><br />
-            <span style="font-size:28px;padding-left:30px">TK </span>
+            <img width="125px" src="im/producttype2.png"><br />
+            <!--<i style="font-size:28px;">ชนิดสินค้า</i><br /><br />-->
+            <span style="font-size:28px;padding-left:30px;padding-top:10px">COTTON </span><br />
+            <span style="font-size:28px;padding-left:30px">TC/TK </span><br />
+            <span style="font-size:28px;padding-left:30px">SUPPERSOFT</span><br />
+            <span style="font-size:28px;padding-left:30px">ทีซี ลาครอส ยูนิฟอร์ม</span><br />
+            <span style="font-size:28px;padding-left:30px">ไมโครกีฬา</span>
           </div>
           <div id="control-wrap" style="padding-left:30px">
             <ul class="bootstrap nav nav-tabs" id="paneltab" role="tablist">
@@ -100,7 +103,9 @@
                     <option>TC</option>
                     <option>TK</option>
                   </select></div>
-              </div>-->▶ <span style="padding-left:2%">เลือกสีเสื้อ</span><br>
+              </div>-->
+              <img width="80%" src="im/productType/cotton2.jpg">
+              <!--▶ <span style="padding-left:2%">เลือกสีเสื้อ</span><br>-->
               <div class="colordiv">
                 <div class="colorcircle" v-for="i in 55" :style="{'background-image':'url(&quot;im/create/Asset ('+(3*i)+').jpg&quot;)'}"
                   v-on:click="updateshirt(i);"></div>
