@@ -149,18 +149,18 @@ chan {
 		<div data-role="content">
 			<ul data-role="listview">
 				<li>
-					<img id="myImg" src="img/promptpay-logo.jpg" alt="img/QR/IMG_0631.JPG"/>
+					<img id="myImg" title="ระบบพร้อมเพย์" src="img/promptpay-logo.jpg" alt="img/QR/IMG_0631.JPG"/>
 					<h3><span class="space">ระบบพร้อมเพย์</span></h3>
 					<p>เบอร์โทรศัพท์ 081-412-2475 <br>ชื่อบัญชี ภูมิรพี แซ่ตั้ง</p>
 				</a></li>
 	      <li>
-					<img src="img//20121010100211.jpg" onclick="window.open('img/QR/IMG_0632.JPG', '_top');"/>
+					<img id="myImg" title="ธนาคารกสิกรไทย" src="img//20121010100211.jpg" alt="img/QR/IMG_0632.JPG"/>
 					<h3><span class="space">ธนาคารกสิกรไทย</span></h3>
 					<p>เลขที่บัญชี 991-2-02508-7<br>
 					ชื่อบัญชี ภูมิรพี แซ่ตั้ง</p>
 				</a></li>
 				<li>
-					<img src="img/iyEeh0ga_400x400.jpg" onclick="window.open('img/QR/IMG_0631.JPG', '_top');"/>
+					<img id="myImg" title="ธนาคารทหารไทย" src="img/iyEeh0ga_400x400.jpg" alt="img/QR/IMG_0631.JPG"/>
 					<h3><span class="space">ธนาคารทหารไทย (TMB BANK)</span></h3>
 					<p>เลขที่บัญชี 271-2-00661-4<br>
 					เลขที่บัญชี 079-2-26507-6<br>
@@ -191,17 +191,17 @@ chan {
 					<p>เติมรหัสบัตรทรูมันนี่ 14 หลัก<br>>> คลิ๊กที่นี่ <<</p>
 				</a></li>
 				<li>
-					<img src="img/246x0w.jpg" onclick="window.open('img/QR/IMG_0635.JPG', '_top');"	 />
+					<img id="myImg" title="TrueMoney Wallet" src="img/246x0w.jpg" alt="img/QR/IMG_0635.JPG"/>
 					<h3><span class="space">TrueMoney Wallet</span></h3>
 					<p>เบอร์โทรศัพท์ 06-4910-1858</p>
 				</a></li>
 				<li>
-					<img src="img/alipay-logo.png" onclick="window.open('img/QR/IMG_0205.JPG', '_top');"/>
+					<img id="myImg" title="Alipay 支付宝" src="img/alipay-logo.png" alt="img/QR/IMG_0205.JPG"/>
 					<h3><span class="space">Alipay 支付宝</span></h3>
 					<p>Account：chenshengtai2000@qq.com</p>
 				</a></li>
 				<li>
-					<img src="img/wechatpay-500x500.png" onclick="window.open('img/QR/IMG_0634.JPG', '_top');"/>
+					<img id="myImg" title="WeChat Pay 微信支付" src="img/wechatpay-500x500.png" alt="img/QR/IMG_0634.JPG"/>
 					<h3><span class="space">WeChat Pay 微信支付</span></h3>
 					<p>Account：chenshengtai2000</p>
 				</a></li>
@@ -231,7 +231,7 @@ var captionText = document.getElementById("caption");
 img.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.alt;
-  captionText.innerHTML = this.alt;
+  captionText.innerHTML = this.title;
 }
 
 // Get the <span> element that closes the modal
