@@ -52,6 +52,7 @@ chan {
 			<h1><chan id="pageTitle">บัญชีธนาคาร</chan></h1>
 			<ul data-role="listview">
 			<li>
+				<img src"img/QR/<?php echo $_POST['id'] ?>">
 				<center><h4><span class="f">การโอนเงิน</span></h4>
 				<span class="f">สามารถทำได้ผ่านช่องทางดังนี้</span></center>
 			</li>
@@ -112,7 +113,7 @@ chan {
 					<p>Account：chenshengtai2000@qq.com</p>
 				</a></li>
 				<li>
-					<img src="img/wechatpay-500x500.png" onclick="window.open('javascript:viewdata('IMG_0634.JPG')', '_top');"/>
+					<img src="img/wechatpay-500x500.png" onclick="window.open('img/QR/IMG_0634.JPG', '_top');"/>
 					<h3><span class="space">WeChat Pay 微信支付</span></h3>
 					<p>Account：chenshengtai2000</p>
 				</a></li>
@@ -131,7 +132,7 @@ chan {
 			 var a = arguments[0];
 			 var form = document.createElement("form");
 			 form.method = "POST";
-			 form.action = "view.php";
+			 form.action = "view.html";
 			 var input = document.createElement("input");
 			 input.type = "hidden";
 			 input.name = "id"
