@@ -235,9 +235,9 @@ chan {
 	var captionText = document.getElementById("caption");
 	$('.myImg').click(function(){
 	    modal.style.display = "block";
-	    var newSrc = this.src;
+	    var newSrc = this.alt;
 	    modalImg.attr('src', newSrc);
-	    captionText.innerHTML = this.alt;
+	    captionText.innerHTML = this.title;
 	});
 
 	// Get the <span> element that closes the modal
