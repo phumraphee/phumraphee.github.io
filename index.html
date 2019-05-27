@@ -29,6 +29,48 @@ document.location.href = noddy.href;
 }
 </script>
 <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modalT {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalT-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.closeT {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeT:hover,
+.closeT:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<style>
 /* Style the Image Used to Trigger the Modal */
 .myImg {
 		border-radius: 5px;
@@ -175,7 +217,7 @@ chan {
 					<p></p>
 				</a></li>
 	      <li>
-					<img src="img/images.png" />
+					<img id="myBtnT" src="img/images.png" />
 					<h3><a href="https://goo.gl/maps/K4HX8wWpsHdKHMtVA"><span class="space">Address 地址</span></a></h3>
 					<p>29/5 Moo 2 Bang Krathuek, Sam Phran, Nakhonpathom 73210<br>
 					29/5 หมู่ 2 ต.บางกระทึก อ.สามพราน จ.นครปฐม 73210</p>
@@ -225,6 +267,17 @@ chan {
 				<br>
 				<center></center><br><br>
 		</div><!-- /content -->
+
+
+ <!-- The Modal -->
+ <div id="myModalT" class="modalT">
+
+	 <!-- Modal content -->
+	 <div class="modalT-content">
+		 <span class="closeT">&times;</span>
+		 <p>Some text in the Modal..</p>
+	 </div>
+
 		<!-- The Modal -->
 	<div id="myModal" class="modal">
 
@@ -242,6 +295,33 @@ chan {
 		</div><!-- /footer -->
 
 	</div><!-- /page -->
+	<script>
+	// Get the modal
+	var modalT = document.getElementById("myModalT");
+
+	// Get the button that opens the modal
+	var btnT = document.getElementById("myBtnT");
+
+	// Get the <span> element that closes the modal
+	var spanT = document.getElementsByClassName("closeT")[0];
+
+	// When the user clicks the button, open the modal
+	btnT.onclick = function() {
+	  modalT.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	spanT.onclick = function() {
+	  modalT.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modalT) {
+	    modalT.style.display = "none";
+	  }
+	}
+	</script>
 	<script>
 	// Get the modal
 	var modal = document.getElementById('myModal');
