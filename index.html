@@ -170,7 +170,7 @@ chan {
 		<div data-role="content">
 			<ul data-role="listview">
 				<li>
-					<img class="myImg" src="img/IMG_0831.JPG" alt="Phumraphee Sae-tang"/>
+					<img class="myImg" src="img/IMG_0831.JPG" title="Phumraphee Sae-tang" alt="img/IMG_0831.JPG"/>
 					<h3><span class="space">陳勝泰 <br>ภูมิรพี แซ่ตั้ง <br>Phumraphee Sae-tang</span></h3>
 					<p></p>
 				</a></li>
@@ -192,12 +192,12 @@ chan {
 					<a href="mailto:phumraphee@gmail.com">phumraphee@gmail.com</a></p>
 				</a></li>
 				<li>
-					<img src="img/214715.png" />
+					<img class="myImg" src="img/214715.png" title="Wechat 微信賬號" alt="img/IMG_0664.JPG"/>
 					<h3><span class="space">Wechat 微信賬號</span></h3>
 					<p>chenshengtai2000</p>
 				</a></li>
 				<li><a href="https://line.me/ti/p/n_9dcCqhV-">
-					<img src="img/line-me.png" />
+					<img class="myImg" src="img/line-me.png" title="Line 連我賬號" alt="img/IMG_0665.PNG"/>
 					<h3><span class="space">Line 連我賬號</span></h3>
 					<p>phumraphee_ipad</p>
 				</a></li>
@@ -252,9 +252,9 @@ chan {
 	var captionText = document.getElementById("caption");
 	$('.myImg').click(function(){
 			modal.style.display = "block";
-			var newSrc = this.src;
+			var newSrc = this.alt;
 			modalImg.attr('src', newSrc);
-			captionText.innerHTML = this.alt;
+			captionText.innerHTML = this.title;
 	});
 
 	// Get the <span> element that closes the modal
