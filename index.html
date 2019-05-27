@@ -31,6 +31,15 @@ document.location.href = noddy.href;
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
+/* Style the Image Used to Trigger the Modal */
+.myImgT {
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.3s;
+}
+
+.myImgT:hover {opacity: 0.7;}
+
 /* The Modal (background) */
 .modalT {
   display: none; /* Hidden by default */
@@ -217,7 +226,7 @@ chan {
 					<p></p>
 				</a></li>
 	      <li>
-					<img id="myBtnT" src="img/images.png" />
+					<img class="myImgT" src="img/images.png" />
 					<h3><a href="https://goo.gl/maps/K4HX8wWpsHdKHMtVA"><span class="space">Address 地址</span></a></h3>
 					<p>29/5 Moo 2 Bang Krathuek, Sam Phran, Nakhonpathom 73210<br>
 					29/5 หมู่ 2 ต.บางกระทึก อ.สามพราน จ.นครปฐม 73210</p>
@@ -277,6 +286,7 @@ chan {
 		 <span class="closeT">&times;</span>
 		 <p>Some text in the Modal..</p>
 	 </div>
+</div>
 
 		<!-- The Modal -->
 	<div id="myModal" class="modal">
