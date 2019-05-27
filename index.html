@@ -226,7 +226,7 @@ chan {
 					<p></p>
 				</a></li>
 	      <li>
-					<img id="myImgT" src="img/images.png" />
+					<img class="myImgT" src="img/images.png" />
 					<h3><a href="https://goo.gl/maps/K4HX8wWpsHdKHMtVA"><span class="space">Address 地址</span></a></h3>
 					<p>29/5 Moo 2 Bang Krathuek, Sam Phran, Nakhonpathom 73210<br>
 					29/5 หมู่ 2 ต.บางกระทึก อ.สามพราน จ.นครปฐม 73210</p>
@@ -310,16 +310,13 @@ chan {
 	// Get the modal
 	var modalT = document.getElementById("myModalT");
 
-	// Get the button that opens the modal
-	var btnT = document.getElementById("myBtnT");
-
 	// Get the <span> element that closes the modal
 	var spanT = document.getElementsByClassName("closeT")[0];
 
-	// When the user clicks the button, open the modal
-	btnT.onclick = function() {
-	  modalT.style.display = "block";
-	}
+	// When the user clicks the image, open the modal
+	$('.myImgT').click(function(){
+			modalT.style.display = "block";
+	});
 
 	// When the user clicks on <span> (x), close the modal
 	spanT.onclick = function() {
